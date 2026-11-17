@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>節氣的免疫學</title>
+<meta name="description" content="現在是什麼節氣？七十二候的古籍原文與現代解釋，以及每個節氣一集的免疫學影片。">
+<meta name="theme-color" content="#12234a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="節氣的免疫學">
+<meta property="og:description" content="現在是什麼節氣？七十二候的古籍原文與現代解釋，以及每個節氣一集的免疫學影片。">
+<meta property="og:image" content="https://cheng1276.github.io/jieqi-immunology/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2312234a'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%23f6f1e7' stroke-opacity='.6' stroke-width='3.2'/%3E%3Ccircle cx='45.4' cy='45.4' r='7.5' fill='%23ffd98f'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="f/jq.d4af20a3.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="f/jr.7e91b0c8.woff2" crossorigin>
+<style>
+/*serif:古籍古人的北方，今天的台灣候名的寫法節氣怎麼算影片節氣的免疫學現在是，你正在看回到現在的節氣三候二十四節氣出處與說明立春之日，東風解凍，又五日，蟄蟲始振，又五日，魚上冰。其禽獸草木，多出北方……故江南老師宿儒，亦難盡識。開始還有已經過了這個節氣期間下一個太陽黃經共約全年*/
+@font-face{font-family:"Jieqi Serif";src:url("f/jq.d4af20a3.woff2") format("woff2"),url("f/jq.9ef12f48.woff") format("woff");font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Jieqi Round";src:url("f/jr.7e91b0c8.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+:root{
+  /* 版面：夜空為底，黃道環是主角；古籍用明體，今解用黑體。配色隨節氣更換，取自該集影片。 */
+  --ground:#0b142a;            /* 閱讀區底色 */
+  --soft:#f9c9bd;              /* 節氣色（提亮，作文字與標記） */
+  --glow:rgba(249,201,189,.22);
+  --accent:#f07a5a; --accent-2:#e8505b;   /* 節氣色帶兩端 */
+  --ink:#f6f1e7; --ink-2:rgba(246,241,231,.74); --ink-3:rgba(246,241,231,.46); --rule:rgba(246,241,231,.16);
+  --sun:#ffd98f;
+  --serif:"Jieqi Serif","Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Jieqi Round","PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;   /* 粉圓體 */
+}
+*{box-sizing:border-box}
+html{color-scheme:dark;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.75 var(--sans);font-synthesis:none;-webkit-font-smoothing:antialiased;transition:background-color .7s}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+h1,h2,h3,p,ol,dl,dd,blockquote{margin:0}
+:focus-visible{outline:2px solid var(--soft);outline-offset:3px;border-radius:4px}
+.wrap{width:min(100% - 40px,1080px);margin-inline:auto}
+
+/* ── 開場：現在的節氣 ── */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:20px 0 0;text-align:center}
+.hero>.wrap{padding-bottom:132px}
+.horizon{position:absolute;left:-15%;right:-15%;bottom:-1px;height:44px;border-radius:50% 50% 0 0/100% 100% 0 0;background:var(--ground);transition:background-color .7s}
+.sky,.sky i{position:absolute;inset:0}
+.sky{z-index:-1;overflow:hidden}
+.sky i{transition:opacity .8s ease}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;text-align:left}
+.mark{font:700 19px/1.2 var(--serif);letter-spacing:.08em}
+.jump{font-size:14px;color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--ink-3);text-underline-offset:5px}
+.when{margin-top:46px;font-size:14px;letter-spacing:.06em;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.lead{margin-top:8px;font:500 clamp(22px,5.6vw,30px)/1.4 var(--serif);letter-spacing:.14em;text-indent:.14em}
+.dial{position:relative;width:min(100%,470px);aspect-ratio:1;margin:6px auto 0}
+.dial svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.core{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.core b{writing-mode:vertical-rl;font:800 clamp(64px,21vw,104px)/1.06 var(--serif);letter-spacing:.03em;text-shadow:0 4px 40px rgba(0,0,0,.28)}
+.rg{fill:none;stroke:var(--ink);stroke-opacity:.26}
+.tk{stroke:var(--ink)}.t1{stroke-opacity:.3}.t2{stroke-opacity:.55}.t3{stroke-opacity:.95;stroke-width:1.5}
+.sg{font:500 13px var(--serif);fill:var(--ink);fill-opacity:.4;text-anchor:middle;dominant-baseline:central}
+.tl{cursor:pointer;outline:none}
+.tl rect{fill:transparent}
+.tl text{font:600 13.5px var(--serif);fill:var(--ink);fill-opacity:.7;text-anchor:middle;dominant-baseline:central;transition:fill-opacity .2s}
+.tl:hover text{fill-opacity:1}
+.tl.c text{fill-opacity:.88}
+.tl.v text{fill-opacity:1;font-weight:800}
+.tl.n text{fill:var(--sun);fill-opacity:1}
+.ar{fill:none;stroke:url(#band);stroke-width:6;stroke-linecap:round;opacity:.6}
+.ar.on{opacity:1;stroke-width:8.5}
+.ar.all{opacity:.9}
+.s1{fill:var(--sun)}.s2{fill:var(--sun);opacity:.24}.s3{fill:var(--sun);opacity:.1;animation:breathe 5s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes breathe{50%{transform:scale(1.35);opacity:.04}}
+.pent{margin-top:10px;font:600 clamp(21px,5.4vw,27px)/1.45 var(--serif);letter-spacing:.06em;text-wrap:balance}
+.pent .pl{display:inline-block;margin-right:.7em;padding:1px 8px 2px;border:1px solid var(--ink-3);border-radius:3px;font-size:.62em;letter-spacing:.1em;vertical-align:.22em}
+.dayn{margin-top:4px;font-size:14.5px;color:var(--ink-2)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.go{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:9px 18px 9px 15px;border:1px solid var(--ink-3);border-radius:999px;font-size:14.5px}
+.go svg{width:11px;height:11px;fill:currentColor}
+.back{margin:14px 6px 0;padding:8px 18px;border-radius:999px;background:var(--ink);color:var(--ground);font-size:15px}
+.facts{display:grid;margin:28px auto 0;max-width:430px;text-align:left;border-top:1px solid var(--rule)}
+.facts div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 2px;border-bottom:1px solid var(--rule)}
+.facts dt{font-size:13.5px;color:var(--ink-2);white-space:nowrap}
+.facts dd{font:500 16px/1.4 var(--serif);font-variant-numeric:tabular-nums;text-align:right}
+@media(min-width:860px){
+  .hero>.wrap{padding-bottom:150px}
+  .dial{width:min(100%,520px)}
+  .facts{max-width:900px;grid-template-columns:1fr 1fr 1.3fr;border-top:0;margin-top:34px}
+  .facts div{flex-direction:column;align-items:flex-start;gap:4px;border-bottom:0;border-left:1px solid var(--rule);padding:2px 0 2px 22px}
+  .facts dd{font-size:19px;text-align:left}
+}
+
+/* ── 內文共用 ── */
+.sec{padding-top:68px}
+.sec h2{font:700 clamp(29px,6.6vw,42px)/1.25 var(--serif);letter-spacing:.06em;text-wrap:balance}
+.sub{margin-top:8px;font-size:14.5px;color:var(--ink-2)}
+
+/* ── 三候 ── */
+.gloss{margin-top:16px;font:500 clamp(18px,4.6vw,21px)/1.75 var(--serif)}
+.cite{margin-top:2px;font-size:13px;color:var(--ink-2)}
+.note{margin-top:14px;max-width:38em;color:var(--ink);opacity:.9}
+.ruler{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:26px;font-size:13.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.ruler ol{display:flex;gap:12px;list-style:none;padding:0}
+.ruler li{display:flex;gap:5px}
+.ruler i{width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.ruler i.p{background:var(--ink-3)}
+.ruler i.t{background:var(--soft);box-shadow:0 0 0 4px var(--glow)}
+.hous{display:grid;margin-top:20px}
+.hou{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:18px;align-content:start;padding:18px 0 30px;border-top:1px solid var(--rule)}
+.hou.now{border-top-color:var(--soft)}
+.hou .meta{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:13.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.ord{font:600 16px/1 var(--serif);color:var(--ink);letter-spacing:.08em}
+.pill{margin-left:auto;padding:2px 10px 3px;border-radius:999px;background:var(--soft);color:var(--ground);font-size:13px;font-style:normal;letter-spacing:.08em}
+.nm{writing-mode:vertical-rl;font:700 30px/1.25 var(--serif);letter-spacing:.12em;min-height:3.4em}
+.hou.now .nm{color:var(--soft)}
+.tx{display:grid;gap:16px;align-content:start}
+.gu,.jin{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:11px}
+.tag{width:24px;height:24px;display:grid;place-items:center;margin-top:4px;border-radius:3px;font:600 13px/1 var(--serif)}
+.gu .tag{border:1px solid var(--ink-3);color:var(--ink-2)}
+.jin .tag{background:var(--ink);color:var(--ground)}
+.gu p{font:500 17px/1.85 var(--serif);letter-spacing:.02em}
+.jin p{font-size:15.5px;line-height:1.9;opacity:.92}
+@media(min-width:900px){
+  .hous{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:40px}
+  .hou{padding-bottom:8px}
+}
+
+/* ── 影片 ── */
+.film{display:grid;gap:28px;margin-top:26px}
+.player{position:relative;width:min(100%,360px);aspect-ratio:9/16;margin-inline:auto;border-radius:22px;overflow:hidden;isolation:isolate;transform:translateZ(0);background:#05070d;box-shadow:0 0 0 1px var(--rule),0 40px 90px -40px rgba(0,0,0,.8)}
+.player img,.player video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.player video{display:none;background:#000}
+.player[data-s="play"] video{display:block}
+.player[data-s="play"] img,.player:not([data-s="idle"]) .pbtn{display:none}
+.pbtn{position:absolute;inset:0;display:grid;place-items:end center;padding-bottom:13%;background:linear-gradient(180deg,rgba(5,7,13,0) 52%,rgba(5,7,13,.62))}
+.pbtn span{display:flex;align-items:center;gap:10px;padding:13px 24px 13px 20px;border-radius:999px;background:var(--ink);color:#0b1020;font-size:17px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.pbtn svg{width:18px;height:18px;fill:currentColor}
+.ov{position:absolute;inset:0;display:none;place-content:center;justify-items:center;gap:12px;padding:28px;text-align:center;background:rgba(6,8,16,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.player[data-s="lock"] .lockv,.player[data-s="load"] .loadv,.player[data-s="err"] .errv{display:grid}
+.ov strong{font:700 22px/1.4 var(--serif);letter-spacing:.04em;text-wrap:balance}
+.ov span{font-size:14px;color:var(--ink-2)}
+.ov button{margin-top:6px;padding:8px 18px;border-radius:999px;border:1px solid var(--ink-3);font-size:14.5px}
+.bar{width:160px;height:3px;border-radius:2px;background:var(--rule);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--soft)}
+.ep{font-size:14.5px;color:var(--ink-2);letter-spacing:.04em}
+.hookq{margin-top:8px;font:700 clamp(25px,6vw,36px)/1.4 var(--serif);letter-spacing:.03em;text-wrap:balance}
+.take{margin-top:22px;padding-left:18px;border-left:2px solid var(--soft);font:500 clamp(18px,4.6vw,21px)/1.75 var(--serif)}
+.hookq span,.take span{display:inline-block}
+.take small{display:block;margin-bottom:2px;font:400 13px/1.6 var(--sans);color:var(--ink-2)}
+.refs{margin-top:26px;font-size:13.5px;line-height:1.7;color:var(--ink-2)}
+.refs summary{width:fit-content;cursor:pointer;font-size:14.5px;color:var(--ink)}
+.refs ol{display:grid;gap:7px;margin-top:12px;padding-left:1.6em}
+.refs a{color:var(--soft);text-underline-offset:3px;white-space:nowrap}
+.disc{margin-top:20px;font-size:13.5px;color:var(--ink-2)}
+@media(min-width:820px){
+  .film{grid-template-columns:360px minmax(0,1fr);column-gap:64px;align-items:start}
+  .film .words{padding-top:26px}
+}
+
+/* ── 全年 ── */
+.seasons{display:grid;gap:34px;margin-top:28px}
+.season h3{display:flex;align-items:baseline;gap:12px;font-size:13.5px;font-weight:400;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.season h3 b{font:700 24px/1 var(--serif);color:var(--ink)}
+.season ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;padding:0;list-style:none}
+.tb{position:relative;display:grid;gap:3px;align-content:start;width:100%;min-height:92px;padding:13px 12px 12px;border:1px solid var(--rule);border-radius:12px;text-align:left;transition:border-color .2s,background-color .2s}
+.tb:hover{border-color:var(--ink-3)}
+.tn{font:700 21px/1.2 var(--serif);letter-spacing:.06em}
+.td,.tt{font-size:12.5px;line-height:1.4;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tb.soon .tn{color:var(--ink-2)}
+.tb.soon::after{content:"";position:absolute;top:12px;right:12px;width:7px;height:7px;border:1px solid var(--ink-3);border-radius:50%}
+.tb.view{background:rgba(246,241,231,.08);border-color:var(--ink-3)}
+.tb.now{border-color:var(--soft)}
+.tb.now .td{color:var(--soft)}
+@media(min-width:900px){.seasons{grid-template-columns:1fr 1fr;column-gap:56px}}
+
+/* ── 出處 ── */
+.about{margin-top:84px;padding:40px 0 72px;border-top:1px solid var(--rule);font-size:14.5px;color:var(--ink-2)}
+.about h2{font:700 22px/1.3 var(--serif);letter-spacing:.06em;color:var(--ink)}
+.about dl{display:grid;gap:22px;margin-top:22px;max-width:44em}
+.about dt{font:700 16px/1.5 var(--serif);letter-spacing:.04em;color:var(--ink)}
+.about dd{margin-top:4px}
+.about q{quotes:none;font:500 15.5px/1.8 var(--serif);color:var(--ink)}
+.about a{color:var(--soft);text-underline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="sky" aria-hidden="true"><i></i><i></i></div>
+  <div class="wrap">
+    <div class="top"><span class="mark">節氣的免疫學</span><button class="jump" id="jump" type="button">全年節氣</button></div>
+    <p class="when" id="when">&nbsp;</p>
+    <h1 class="lead" id="lead">現在是</h1>
+    <div class="dial">
+      <svg viewBox="-200 -200 400 400" id="ring" aria-hidden="true"></svg>
+      <div class="core" aria-hidden="true"><b id="core"></b></div>
+    </div>
+    <p class="pent" id="pent">&nbsp;</p>
+    <p class="dayn" id="dayn">&nbsp;</p>
+    <div><button class="back" id="back" type="button" hidden>回到現在的節氣</button><button class="go" id="go" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 1.5v17l14-8.5z"/></svg><span id="got"></span></button></div>
+    <dl class="facts">
+      <div><dt>節氣開始</dt><dd id="f1"></dd></div>
+      <div><dt>現在的太陽黃經</dt><dd id="lam"></dd></div>
+      <div><dt id="f3l">下一個節氣</dt><dd id="f3"></dd></div>
+    </dl>
+  </div>
+  <div class="horizon" aria-hidden="true"></div>
+</header>
+<main>
+  <section class="sec wrap" id="hou" aria-labelledby="houH">
+    <h2 id="houH"></h2>
+    <p class="gloss" id="gloss"></p>
+    <p class="cite">元・吳澄《月令七十二候集解》</p>
+    <p class="note" id="note"></p>
+    <div class="ruler" id="ruler"></div>
+    <div class="hous" id="hous"></div>
+  </section>
+  <section class="sec wrap" id="film" aria-labelledby="filmH">
+    <h2 id="filmH"></h2>
+    <div class="film">
+      <div class="player" id="player" data-s="idle">
+        <img id="poster" alt="" width="720" height="1280">
+        <video id="vid" playsinline preload="none"></video>
+        <button class="pbtn" id="pbtn" type="button"><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5v15l13-7.5z"/></svg>播放影片</span></button>
+        <div class="ov lockv"><strong id="lockt"></strong><span>每個節氣一集，節氣當天上線。</span><button type="button" id="lockb">看現在的節氣</button></div>
+        <div class="ov loadv"><strong>影片載入中</strong><div class="bar"><i id="bar"></i></div></div>
+        <div class="ov errv"><strong>影片沒有載入成功</strong><span>請確認網路連線，再試一次。</span><button type="button" id="retry">再試一次</button></div>
+      </div>
+      <div class="words">
+        <p class="ep" id="ep"></p>
+        <h3 class="hookq" id="hookq"></h3>
+        <p class="take" id="take"></p>
+        <details class="refs" id="refs" open></details>
+        <p class="disc">影片是衛教資訊，不能取代看診。身體有狀況，請找醫師。</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec wrap" id="year" aria-labelledby="yearH">
+    <h2 id="yearH">二十四節氣</h2>
+    <p class="sub">每個節氣一集影片，節氣當天上線。選一個節氣，看它的三候。右上角有小圓圈的，影片還沒上線。</p>
+    <div class="seasons" id="seasons"></div>
+  </section>
+</main>
+<footer class="about">
+  <div class="wrap">
+    <h2>出處與說明</h2>
+    <dl>
+      <div><dt>古籍</dt><dd>五天一候、全年七十二候的排法，見於《逸周書・時訓解》：<q>立春之日，東風解凍，又五日，蟄蟲始振，又五日，魚上冰。</q>本頁每一候的「古」，引自元代吳澄《月令七十二候集解》。原文可在維基文庫查閱：<a href="https://zh.wikisource.org/wiki/%E6%9C%88%E4%BB%A4%E4%B8%83%E5%8D%81%E4%BA%8C%E5%80%99%E9%9B%86%E8%A7%A3" target="_blank" rel="noopener">月令七十二候集解</a>、<a href="https://zh.wikisource.org/wiki/%E9%80%B8%E5%91%A8%E6%9B%B8/%E5%8D%B7%E5%85%AD" target="_blank" rel="noopener">逸周書・時訓</a>、<a href="https://zh.wikisource.org/zh/%E7%A6%AE%E8%A8%98/%E6%9C%88%E4%BB%A4" target="_blank" rel="noopener">禮記・月令</a>。</dd></div>
+      <div><dt>古人的北方，今天的台灣</dt><dd>吳澄在序裡就說過：<q>其禽獸草木，多出北方……故江南老師宿儒，亦難盡識。</q>七十二候記的是兩千多年前黃河流域的物候，和台灣的氣候不一定對得上。「今」用現代的氣象學與生物學，解釋古人當時看到的現象；古人說錯的地方，也照實說。</dd></div>
+      <div><dt>候名的寫法</dt><dd>各版本用字略有出入，例如「雞乳」與「雞始乳」、「鷹始擊」與「鷹始摯」。本頁採通行的寫法。</dd></div>
+      <div><dt>節氣怎麼算</dt><dd>太陽在黃道上每走 15° 是一個節氣。本頁依太陽視黃經計算每個節氣開始的時刻，並和中央氣象署的 <a href="https://www.cwa.gov.tw/Data/astronomy/2026cal.pdf" target="_blank" rel="noopener">2026 年</a>、<a href="https://www.cwa.gov.tw/Data/astronomy/2027cal.pdf" target="_blank" rel="noopener">2027 年</a>年曆逐一核對。節氣開始的那一天，整天都算這個節氣；之後每五天一候。</dd></div>
+      <div><dt>影片</dt><dd>Reels 系列「節氣裡的免疫學」，每個節氣一集，醫學內容依據各集所列的文獻。影片和本頁都是衛教資訊，不能取代看診。</dd></div>
+    </dl>
+  </div>
+</footer>
+<noscript><p style="padding:24px">這個頁面需要開啟 JavaScript，才能算出現在的節氣。</p></noscript>
+<script>
+(()=>{"use strict";
+const D={"terms":[{"n":"春分","s":"chunfen","g":"分者，半也。此當九十日之半，故謂之分。","t":"太陽到達黃經 0°，直射赤道，全球晝夜幾乎等長。","h":[["玄鳥至","高誘曰：春分而來，秋分而去也。","玄鳥是燕子。家燕在東南亞等地度冬，春天北返繁殖，常回到去年的屋簷下築巢。台灣騎樓下的燕巢，也在這個時節熱鬧起來。"],["雷乃發聲","陰陽相薄為雷，至此，四陽漸盛，猶有陰焉，則相薄乃發聲矣。","打雷需要旺盛的對流。春天地面受熱，暖濕空氣上升，遇上高空還很冷的空氣，積雨雲發展起來，雲裡的電荷放電，就有雷。冬天空氣穩定，所以少雷。"],["始電","《公羊傳》曰：電者，雷光是也。","閃電和雷聲來自同一次放電：閃電把空氣瞬間加熱到上萬度，空氣急速膨脹，發出雷聲。光比聲音快得多，所以先看到閃電，才聽到雷。"]],"no":"10","tp":"免疫平衡","q":["免疫力，","真的越強越好？"],"a":["免疫力不必更強，","平衡就好。"],"r":[["Kim VHD, et al. Allergy Asthma Clin Immunol. 2025;20(Suppl 3):76.","https://pubmed.ncbi.nlm.nih.gov/39780212/"],["Galli SJ, et al. Nature. 2008;454(7203):445-54.","https://pubmed.ncbi.nlm.nih.gov/18650915/"],["Sakaguchi S, et al. Annu Rev Immunol. 2020;38:541-566.","https://pubmed.ncbi.nlm.nih.gov/32017635/"],["Hemilä H, Chalker E. Cochrane Database Syst Rev. 2013;(1):CD000980.","https://pubmed.ncbi.nlm.nih.gov/23440782/"],["Prather AA, et al. Sleep. 2015;38(9):1353-9.","https://pubmed.ncbi.nlm.nih.gov/26118561/"],["Nieman DC, et al. Br J Sports Med. 2011;45(12):987-92.","https://pubmed.ncbi.nlm.nih.gov/21041243/"],["Arcavi L, Benowitz NL. Arch Intern Med. 2004;164(20):2206-16.","https://pubmed.ncbi.nlm.nih.gov/15534156/"],["Faden DF, et al. ACR Open Rheumatol. 2024;6(12):820-825.","https://pubmed.ncbi.nlm.nih.gov/39233452/"],["Bax CE, et al. J Am Acad Dermatol. 2021;84(4):1051-1058.","https://pubmed.ncbi.nlm.nih.gov/32553683/"],["Lee AN, Werth VP. Arch Dermatol. 2004;140(6):723-7.","https://pubmed.ncbi.nlm.nih.gov/15210464/"]],"c":{"a":"#181b49","b":"#34357f","h":"#6f467b","v":"#804b7a","g":"#0e102a","b1":"#f08aa8","b2":"#7c8cf2","s":"#909df4","sg":"rgba(144,157,244,.22)"}},{"n":"清明","s":"qingming","g":"物至此時皆以潔齊而清明矣。","t":"太陽到達黃經 15°。天氣轉暖，草木新綠，景物清朗。","h":[["桐始華","今始華者，乃白桐耳。","《集解》說這裡的桐是白桐，也就是泡桐，先開花、後長葉。台灣四、五月滿山的油桐花是另一種桐，花期晚一些。"],["田鼠化為鴽","鴽，鶉也，似鴿而小。","候名裡的這種鳥，是鵪鶉一類的小鳥。天氣變熱，田鼠躲回地下，田裡換成鵪鶉出沒，古人把一消一長看成互變。這是當時的「化生」觀念，在生物學上並不成立。"],["虹始見","雲薄漏日，日照雨滴則虹生焉。","這句古注幾乎就是現代的答案。陽光進入雨滴，經過折射、反射、再折射，不同顏色偏折的角度不同，就分成七彩。春天雨後常出太陽，所以開始看得到虹。"]],"no":"11","tp":"運動","q":["常運動的人，","真的比較少感冒？"],"a":["你出門走走，","免疫也出門巡邏。"],"r":[["Nieman DC, et al. Br J Sports Med. 2011;45(12):987-92.","https://pubmed.ncbi.nlm.nih.gov/21041243/"],["Chastin SFM, et al. Sports Med. 2021;51(8):1673-1686.","https://pubmed.ncbi.nlm.nih.gov/33877614/"],["Nieman DC, Wentz LM. J Sport Health Sci. 2019;8(3):201-217.","https://pubmed.ncbi.nlm.nih.gov/31193280/"],["Bull FC, et al. Br J Sports Med. 2020;54(24):1451-1462.","https://pubmed.ncbi.nlm.nih.gov/33239350/"],["Regnaux JP, et al. Cochrane Database Syst Rev. 2019;10(10):CD011321.","https://pubmed.ncbi.nlm.nih.gov/31578051/"],["Rausch Osthoff AK, et al. Ann Rheum Dis. 2018;77(9):1251-1260.","https://pubmed.ncbi.nlm.nih.gov/29997112/"],["Sieper J, et al. Ann Rheum Dis. 2009;68(6):784-8.","https://pubmed.ncbi.nlm.nih.gov/19147614/"],["Rudwaleit M, et al. Ann Rheum Dis. 2009;68(6):777-83.","https://pubmed.ncbi.nlm.nih.gov/19297344/"]],"c":{"a":"#14284f","b":"#1f5a78","h":"#286e6f","v":"#2c766b","g":"#0c162c","b1":"#3fb58a","b2":"#4f9ee8","s":"#6aadec","sg":"rgba(106,173,236,.22)"}},{"n":"穀雨","s":"guyu","g":"自雨水後，土膏脈動，今又雨其穀于水也。","t":"太陽到達黃經 30°。春季最後一個節氣，雨水增多，正好播種。","h":[["萍始生","萍，水草也，與水相平，故曰萍。","浮萍是長得最快的開花植物之一，靠葉狀體不斷分裂來繁殖。水溫夠、養分足的時候，幾天就能多一倍，最快不到兩天，池塘很快就鋪滿。"],["鳴鳩拂其羽","蓋當三月之時，趨農急矣，鳩乃追逐而鳴。","鳩是布穀鳥。雄鳥在繁殖季一邊叫、一邊振翅追逐。牠的叫聲聽起來像「布穀、布穀」，又剛好碰上播種的時節，農人就把牠當成催耕的鬧鐘。"],["戴勝降于桑","頭上有勝毛。","戴勝是頭上有扇形羽冠的鳥，春天在樹洞裡築巢，常在桑樹等大樹間活動。桑葉長成、戴勝出現，就是該養蠶的訊號。在台灣，金門最容易看到牠。"]],"no":"12","tp":"膳食纖維","q":["你的腸道菌，","今天吃飽了嗎？"],"a":["你吃全穀，","腸道菌也開飯。"],"r":[["Koh A, et al. Cell. 2016;165(6):1332-1345.","https://pubmed.ncbi.nlm.nih.gov/27259147/"],["So D, et al. Am J Clin Nutr. 2018;107(6):965-983.","https://pubmed.ncbi.nlm.nih.gov/29757343/"],["Smith PM, et al. Science. 2013;341(6145):569-73.","https://pubmed.ncbi.nlm.nih.gov/23828891/"],["Furusawa Y, et al. Nature. 2013;504(7480):446-50.","https://pubmed.ncbi.nlm.nih.gov/24226770/"],["Desai MS, et al. Cell. 2016;167(5):1339-1353.","https://pubmed.ncbi.nlm.nih.gov/27863247/"],["Reynolds A, et al. Lancet. 2019;393(10170):434-445.","https://pubmed.ncbi.nlm.nih.gov/30638909/"]],"c":{"a":"#152a4d","b":"#27566f","h":"#426c5c","v":"#497356","g":"#0c182c","b1":"#5aa9e6","b2":"#6fbf73","s":"#6fbf73","sg":"rgba(111,191,115,.22)"}},{"n":"立夏","s":"lixia","g":"夏，假也。物至此時皆假大也。","t":"太陽到達黃經 45°。夏季從這天起算；「假」是大，萬物到這時都長大了。","h":[["螻蟈鳴","螻蟈，小蟲，生穴土中，好夜出，今人謂之土狗是也。","螻蟈是什麼，古人就有兩種說法：鄭玄說是蛙，《集解》說是螻蛄，也就是土狗。兩者都在初夏的夜裡鳴叫，而且都是雄性在求偶；氣溫越高，叫得越勤。"],["蚯蚓出","陰而屈者，乘陽而伸見也。","蚯蚓用皮膚呼吸，皮膚必須保持濕潤。初夏土壤溫暖、雨水多，牠們活動到地表附近；大雨過後更會整條爬出來，可能是因為土裡積水、不好呼吸。"],["王瓜生","王瓜處處有之，生平野、田宅及牆垣。","王瓜是葫蘆科的野生藤蔓，不是餐桌上的黃瓜。藤本植物把養分用在抽長而不是長粗，靠捲鬚攀著別人往上爭陽光，初夏高溫多雨時長得飛快。"]],"no":"13","tp":"防曬","q":["曬太陽時，","皮膚在忙什麼？"],"a":["你做好防曬，","皮膚就少加班。"],"r":[["Estadt SN, et al. J Invest Dermatol. 2022;142(3 Pt B):849-856.","https://pubmed.ncbi.nlm.nih.gov/34167786/"],["Bernard JJ, et al. Nat Rev Immunol. 2019;19(11):688-701.","https://pubmed.ncbi.nlm.nih.gov/31213673/"],["Hughes MC, et al. Ann Intern Med. 2013;158(11):781-90.","https://pubmed.ncbi.nlm.nih.gov/23732711/"],["Green AC, et al. J Clin Oncol. 2011;29(3):257-63.","https://pubmed.ncbi.nlm.nih.gov/21135266/"],["Petersen B, Wulf HC. Photodermatol Photoimmunol Photomed. 2014;30(2-3):96-101.","https://pubmed.ncbi.nlm.nih.gov/24313722/"],["Kuhn A, et al. J Am Acad Dermatol. 2011;64(1):37-48.","https://pubmed.ncbi.nlm.nih.gov/21167404/"],["Parodis I, et al. Ann Rheum Dis. 2024;83(6):720-729.","https://pubmed.ncbi.nlm.nih.gov/37433575/"]],"c":{"a":"#10306a","b":"#1b5f93","h":"#3e6886","v":"#b98759","g":"#0a1a3a","b1":"#ffb347","b2":"#ff7a59","s":"#ff8566","sg":"rgba(255,133,102,.22)"}},{"n":"小滿","s":"xiaoman","g":"小滿者，物至于此小得盈滿。","t":"太陽到達黃經 60°。麥類的籽粒開始飽滿，但還沒全熟。","h":[["苦菜秀","鮑氏曰：感火之氣而苦味成。","苦菜一般認為是菊科的野菜，這時長得最茂盛。苦味來自植物自己合成的防禦物質，讓昆蟲和草食動物不想吃。青黃不接的季節，人們照樣採來當菜。"],["靡草死","凡物感陽而生者則強而立，感陰而生者則柔而靡。","靡草是薺菜、葶藶這類細軟的小草。它們趁早春陽光還照得到地面時發芽、開花、結籽，入夏天熱就枯死，把種子留在土裡，是一種躲開酷暑的活法。"],["麥秋至","此于時雖夏，于麥則秋，故云麥秋也。","「秋」在這裡是成熟、收成的意思。冬小麥前一年秋天播種，以幼苗過冬，到初夏成熟，所以夏天是麥子的「秋天」。"]],"no":"14","tp":"保健食品","q":["節氣有小滿，","卻沒有大滿？"],"a":["保健食品，","剛好就好。"],"r":[["Wessels I, et al. Nutrients. 2017;9(12):1286.","https://pubmed.ncbi.nlm.nih.gov/29186856/"],["Broun ER, et al. JAMA. 1990;264(11):1441-3.","https://pubmed.ncbi.nlm.nih.gov/2094240/"],["Loftfield E, et al. JAMA Netw Open. 2024;7(6):e2418729.","https://pubmed.ncbi.nlm.nih.gov/38922615/"],["US Preventive Services Task Force. JAMA. 2022;327(23):2326-2333.","https://pubmed.ncbi.nlm.nih.gov/35727271/"],["ATBC Cancer Prevention Study Group. N Engl J Med. 1994;330(15):1029-35.","https://pubmed.ncbi.nlm.nih.gov/8127329/"],["Huang YS, et al. Hepatol Int. 2021;15(6):1456-1465.","https://pubmed.ncbi.nlm.nih.gov/34382132/"]],"c":{"a":"#123a3c","b":"#1c6a5c","h":"#2f7059","v":"#b19c41","g":"#0b2023","b1":"#4fb58a","b2":"#e9b83e","s":"#e9b83e","sg":"rgba(233,184,62,.22)"}},{"n":"芒種","s":"mangzhong","g":"謂有芒之種穀可稼種矣。","t":"太陽到達黃經 75°。有芒的穀類，該收的收、該種的種，農事最忙。","h":[["螳螂生","一殼百子，至此時則破殼而出。","螳螂前一年秋天把卵產在泡沫狀的卵鞘裡，泡沫變硬後像一層保溫殼，卵就在裡面過冬。初夏氣溫夠高，上百隻小螳螂一起孵化，一出生就會捕食。"],["鵙始鳴","百勞以五月鳴，其聲鵙鵙然，故以之立名。","鵙是伯勞，名字來自牠粗啞的叫聲。伯勞是小型的掠食性鳥類，會把獵物插在樹枝尖刺上存放。台灣最熟悉的是紅尾伯勞，每年九月過境恆春半島。"],["反舌無聲","反舌感陽而發，遇微陰而無聲也。","反舌是百舌鳥，一般認為是烏鶇，會模仿其他鳥的叫聲。鳥類鳴唱主要是為了求偶和守地盤，繁殖期一過，雄性荷爾蒙下降，歌聲就停了。"]],"no":"15","tp":"壓力","q":["一忙起來，","就容易感冒？"],"a":["忙歸忙，","讓免疫喘口氣。"],"r":[["Cohen S, et al. N Engl J Med. 1991;325(9):606-12.","https://pubmed.ncbi.nlm.nih.gov/1713648/"],["Segerstrom SC, Miller GE. Psychol Bull. 2004;130(4):601-30.","https://pubmed.ncbi.nlm.nih.gov/15250815/"],["Cohen S, et al. Proc Natl Acad Sci U S A. 2012;109(16):5995-9.","https://pubmed.ncbi.nlm.nih.gov/22474371/"],["Kiecolt-Glaser JK, et al. Lancet. 1995;346(8984):1194-6.","https://pubmed.ncbi.nlm.nih.gov/7475659/"],["Pedersen AF, et al. Brain Behav Immun. 2009;23(4):427-33.","https://pubmed.ncbi.nlm.nih.gov/19486657/"]],"c":{"a":"#2a2152","b":"#573a80","h":"#7e5572","v":"#d08d56","g":"#17132e","b1":"#8e6bd8","b2":"#f0a24a","s":"#f0a24a","sg":"rgba(240,162,74,.22)"}},{"n":"夏至","s":"xiazhi","g":"萬物于此皆假大而至極也。","t":"太陽到達黃經 90°，直射北回歸線。北半球白天最長；嘉義、花蓮一帶正午幾乎沒有影子。","h":[["鹿角解","夏至一陰生，感陰氣而鹿角解。解，角退落也。","鹿角是骨質，每年脫落、再長新的。調控它的是日照長度：光週期改變雄性荷爾蒙，荷爾蒙降低時，角的基部被吸收而脫落。古人說「感陰氣」，換成現代的話就是感光。"],["蜩始鳴","雄者能鳴，雌者無聲，今俗稱知了是也。","蜩是蟬。蟬的若蟲在地下吸食樹根汁液，住上好幾年，等土溫夠高才鑽出來羽化。會叫的只有雄蟬，用腹部的發音器振動出聲，為的是吸引雌蟬。這一點古注說對了。"],["半夏生","半夏，藥名，居夏之半而生，故名。","半夏是天南星科的小草，喜歡陰濕，在夏季過半時冒出來。塊莖是常用中藥，但生的有毒，會刺激口腔和喉嚨，入藥前必須先炮製。"]],"no":"16","tp":"睡眠","q":["夏至夜最短，","你睡滿 7 小時嗎？"],"a":["夜再短，","也要好好睡。"],"r":[["Prather AA, et al. Sleep. 2015;38(9):1353-9.","https://pubmed.ncbi.nlm.nih.gov/26118561/"],["Dimitrov S, et al. J Exp Med. 2019;216(3):517-526.","https://pubmed.ncbi.nlm.nih.gov/30755455/"],["Besedovsky L, et al. Physiol Rev. 2019;99(3):1325-1380.","https://pubmed.ncbi.nlm.nih.gov/30920354/"],["Spiegel K, et al. Curr Biol. 2023;33(5):998-1005.e2.","https://pubmed.ncbi.nlm.nih.gov/36917932/"],["Hirshkowitz M, et al. Sleep Health. 2015;1(1):40-43.","https://pubmed.ncbi.nlm.nih.gov/29073412/"],["Qaseem A, et al. Ann Intern Med. 2016;165(2):125-33.","https://pubmed.ncbi.nlm.nih.gov/27136449/"],["Dubois JM, et al. Rev Prat. 2024;74(3):260-265.","https://pubmed.ncbi.nlm.nih.gov/38551862/"]],"c":{"a":"#26347f","b":"#19255f","h":"#101947","v":"#0e1540","g":"#151c44","b1":"#4f6bdc","b2":"#ffc24a","s":"#ffc24a","sg":"rgba(255,194,74,.22)"}},{"n":"小暑","s":"xiaoshu","g":"月初為小，月中為大，今則熱氣猶小也。","t":"太陽到達黃經 105°。已經很熱，但還沒到最熱。","h":[["溫風至","至，極也，溫熱之風至此而極矣。","夏季風從海上吹來，又熱又濕。空氣裡水氣多，汗不容易蒸發，身體散熱變難，體感溫度比氣溫高。這時連風都是熱的。"],["蟋蟀居壁","此時羽翼稍成，居穴之壁，至七月則遠飛而在野矣。","蟋蟀不經過蛹期，若蟲一次次蛻皮長大。這時翅膀還沒長全，不能飛也不能鳴，就躲在洞穴、牆縫等陰涼處，等最後一次蛻皮後才到野外鳴叫求偶。"],["鷹始擊","殺氣未肅，鷙猛之鳥始習于擊，迎殺氣也。","這一候也寫作「鷹始摯」或「鷹乃學習」。春天孵出的雛鷹這時羽毛長齊，離巢練習飛行和撲擊。獵捕的技巧要靠反覆練習，剛離巢的幼鳥常常失手。"]],"no":"17","tp":"蚊子包","q":["蚊子包，","為什麼會腫？"],"a":["腫，是免疫在工作；","防蚊，是你的工作。"],"r":[["Reunala T, et al. Ann Med. 1994;26(4):301-6.","https://pubmed.ncbi.nlm.nih.gov/7946248/"],["Karppinen A, et al. Allergy. 2002;57(6):534-7.","https://pubmed.ncbi.nlm.nih.gov/12028119/"],["Peng Z, Simons FE. Int Arch Allergy Immunol. 2004;133(2):198-209.","https://pubmed.ncbi.nlm.nih.gov/14963366/"],["Fradin MS, Day JF. N Engl J Med. 2002;347(1):13-8.","https://pubmed.ncbi.nlm.nih.gov/12097535/"],["De Obaldia ME, et al. Cell. 2022;185(22):4099-4116.e13.","https://pubmed.ncbi.nlm.nih.gov/36261039/"]],"c":{"a":"#3d1438","b":"#7a2349","h":"#a44645","v":"#dc753f","g":"#200c21","b1":"#e2407f","b2":"#ffb347","s":"#ffb347","sg":"rgba(255,179,71,.22)"}},{"n":"大暑","s":"dashu","g":"月初為小，月中為大。","t":"太陽到達黃經 120°。一年最熱的時段，也是午後雷陣雨和颱風的季節。","h":[["腐草為螢","離明之極，則幽陰至微之物亦化而為明也。","螢火蟲不是腐草變的。牠把卵產在潮濕的草叢和落葉間，幼蟲也住在那裡，羽化後從草堆飛出來，看起來就像草變成了螢。發光是體內螢光素的化學反應，用來求偶。"],["土潤溽暑","溽，濕也，土之氣潤，故蒸鬱而為濕。","溽暑就是濕熱。高溫讓土壤和地面的水大量蒸發，空氣濕度升高。濕度一高，汗排不掉，同樣的氣溫更容易中暑；黴菌和塵蟎也長得更好。"],["大雨時行","前候濕暑之氣蒸鬱，今候則大雨時行，以退暑也。","地面被曬熱，濕熱空氣快速上升，午後發展成積雨雲，下起又急又大的雷陣雨，雨後氣溫明顯下降。在台灣，這時還要加上颱風帶來的豪雨。"]],"no":"18","tp":"發燒與中暑","q":["發燒和中暑，","差在哪？"],"a":["發燒，是調高設定；","中暑，是散熱失靈。"],"r":[["Fischler MP, Reinhart WH. Schweiz Med Wochenschr. 1997;127(20):864-70.","https://pubmed.ncbi.nlm.nih.gov/9289813/"],["Evans SS, et al. Nat Rev Immunol. 2015;15(6):335-49.","https://pubmed.ncbi.nlm.nih.gov/25976513/"],["Walter EJ, et al. Crit Care. 2016;20(1):200.","https://pubmed.ncbi.nlm.nih.gov/27411542/"],["Bouchama A, et al. Nat Rev Dis Primers. 2022;8(1):8.","https://pubmed.ncbi.nlm.nih.gov/35115565/"],["Gaudio FG, Grissom CK. J Emerg Med. 2016;50(4):607-16.","https://pubmed.ncbi.nlm.nih.gov/26525947/"]],"c":{"a":"#0f3a78","b":"#1f6cb0","h":"#1f6cb0","v":"#c89653","g":"#0a2041","b1":"#ff7a3c","b2":"#ffc93c","s":"#ffc93c","sg":"rgba(255,201,60,.22)"}},{"n":"立秋","s":"liqiu","g":"秋，揫也。物于此而揫斂也。","t":"太陽到達黃經 135°。秋季從這天起算；台灣這時仍是盛夏。","h":[["涼風至","西方淒清之風曰涼風，溫變而涼氣始肅也。","立秋後白天繼續變短，地面每天收到的熱量減少，北方開始有冷空氣南下，華北早晚吹起涼風。台灣緯度低、四面環海，這時還感覺不到。"],["白露降","大雨之後，清涼風來，而天氣下降，茫茫而白者，尚未凝珠，故曰白露。","夜裡地面散熱降溫，貼近地面的空氣降到露點，水氣就凝結出來。古注說「茫茫而白、尚未凝珠」，寫的像是清晨貼著地面的霧氣，比露珠早一步出現。"],["寒蟬鳴","寒蟬，《爾雅》曰寒螿，蟬小而青紫者。","寒蟬是比較晚出現的蟬，夏末秋初才羽化、鳴叫。不同種的蟬出土時間錯開，從初夏到秋天輪流登場。聽到寒蟬，表示蟬的季節快結束了。"]],"no":"19","tp":"脂肪與發炎","q":["脂肪太多，","身體會發炎？"],"a":["秋膘不必貼；","少點脂肪，少點發炎。"],"r":[["Weisberg SP, et al. J Clin Invest. 2003;112(12):1796-808.","https://pubmed.ncbi.nlm.nih.gov/14679176/"],["Hotamisligil GS. Nature. 2006;444(7121):860-7.","https://pubmed.ncbi.nlm.nih.gov/17167474/"],["Visser M, et al. JAMA. 1999;282(22):2131-5.","https://pubmed.ncbi.nlm.nih.gov/10591334/"],["Qin B, et al. Arthritis Res Ther. 2015;17(1):86.","https://pubmed.ncbi.nlm.nih.gov/25890172/"],["Selvin E, et al. Arch Intern Med. 2007;167(1):31-9.","https://pubmed.ncbi.nlm.nih.gov/17210875/"]],"c":{"a":"#113538","b":"#1d5a56","h":"#476a54","v":"#b5944e","g":"#0a1d21","b1":"#2a9d8f","b2":"#e9b44c","s":"#e9b44c","sg":"rgba(233,180,76,.22)"}},{"n":"處暑","s":"chushu","g":"處，止也。暑氣至此而止矣。","t":"太陽到達黃經 150°。「處」是止，暑氣到這裡開始消退。","h":[["鷹乃祭鳥","鷹感其氣始捕擊諸鳥，然必先祭之。","入秋後小鳥數量多，剛學會獵捕的幼鷹也加入，猛禽捕獵頻繁。有些猛禽會把一時吃不完的獵物放著，古人看成先陳列、祭拜，再享用。"],["天地始肅","秋者，陰之始，故曰天地始肅。","「肅」是收斂、清冷。日照變短，植物把葉子裡的養分收回枝幹和根部，不再抽新芽；空氣裡的水氣減少，天空顯得又高又清。"],["禾乃登","稻秫苽粱之屬皆禾也。","禾是稻、黍、粱等穀類的總稱，「登」是成熟。穀粒在這時完成充實，含水量下降，就可以收割。台灣的稻作一年兩期，節奏和古書寫的華北不同。"]],"no":"20","tp":"拜拜的煙","q":["拜拜的煙，","呼吸道怎麼擋？"],"a":["心誠則靈；","少點煙，多口好空氣。"],"r":[["Bustamante-Marin XM, Ostrowski LE. Cold Spring Harb Perspect Biol. 2017;9(4):a028241.","https://pubmed.ncbi.nlm.nih.gov/27864314/"],["Tilley AE, et al. Annu Rev Physiol. 2015;77:379-406.","https://pubmed.ncbi.nlm.nih.gov/25386990/"],["Lin TC, et al. Clin Mol Allergy. 2008;6:3.","https://pubmed.ncbi.nlm.nih.gov/18439280/"],["Zhang Z, et al. Pediatr Pulmonol. 2019;54(4):399-404.","https://pubmed.ncbi.nlm.nih.gov/30652429/"],["Wang IJ, et al. Eur Respir J. 2011;37(6):1371-7.","https://pubmed.ncbi.nlm.nih.gov/21109554/"]],"c":{"a":"#1d1838","b":"#44305f","h":"#865556","v":"#c1764e","g":"#100e21","b1":"#7b5ea7","b2":"#f0a04b","s":"#f0a04b","sg":"rgba(240,160,75,.22)"}},{"n":"白露","s":"bailu","g":"陰氣漸重，露凝而白也。","t":"太陽到達黃經 165°。夜晚轉涼，清晨的草葉上開始有露水。","h":[["鴻雁來","鴻大鴈小，自北而來南也。","雁群從北方的繁殖地南下度冬。牠們排成人字形飛行，後面的鳥利用前一隻翅膀帶起的上升氣流，可以省力；領頭的位置最累，會輪流擔任。"],["玄鳥歸","燕乃北方之鳥，故曰歸。","燕子以飛蟲為食。天一轉涼，空中的昆蟲變少，牠們就往南飛到食物充足的地方。讓候鳥動身的訊號，主要是越來越短的白天。"],["群鳥養羞","養羞者，藏之以備冬月之養也。","「羞」同「饈」，是食物。留下來過冬的鳥開始儲糧，像松鴉會把堅果一顆顆藏起來，並記得大部分的位置；另一些鳥則大吃，把能量存成脂肪。"]],"no":"21","tp":"反覆感冒","q":["一直感冒，","是免疫力差嗎？"],"a":["感冒是免疫的功課；","又重又反覆，才要查。"],"r":[["Heikkinen T, Järvinen A. Lancet. 2003;361(9351):51-9.","https://pubmed.ncbi.nlm.nih.gov/12517470/"],["McLean GR. Hum Vaccin Immunother. 2020;16(3):684-6.","https://pubmed.ncbi.nlm.nih.gov/31464554/"],["Ball TM, et al. Arch Pediatr Adolesc Med. 2002;156(2):121-6.","https://pubmed.ncbi.nlm.nih.gov/11814371/"],["Subbarayan A, et al. Pediatrics. 2011;127(5):810-6.","https://pubmed.ncbi.nlm.nih.gov/21482601/"]],"c":{"a":"#14304d","b":"#27688f","h":"#296a90","v":"#87c5c2","g":"#0c1a2c","b1":"#3a86b8","b2":"#7cc9b6","s":"#7cc9b6","sg":"rgba(124,201,182,.22)"}},{"n":"秋分","s":"qiufen","g":"分者，半也。","t":"太陽到達黃經 180°，再次直射赤道，晝夜幾乎等長；此後北半球夜比晝長。","h":[["雷始收聲","雷二月陽中發聲，八月陰中收聲入地。","入秋後地面降溫、水氣減少，空氣不容易強烈上升，積雨雲發展不起來，雷雨就少了。雷沒有「入地」，是打雷的條件不見了。"],["蟄蟲坯戶","坏益其蟄穴之戶，使通明處稍小，至寒甚乃墐塞之也。","「坏」音同培，是細泥，今多寫作「坯」。準備過冬的小動物用泥土把洞口封小，洞裡的溫度、濕度比外面穩定。讓牠們動手的訊號，是變短的白天和下降的氣溫。"],["水始涸","春夏氣至故長，秋冬氣返故涸也。","華北的雨集中在夏天，入秋後雨量驟減，河湖水位下降。台灣也有乾濕季：東北季風一起，北部、東部多雨，中南部卻進入乾季。"]],"no":"22","tp":"眼乾口乾","q":["眼乾、口乾，","只是秋燥嗎？"],"a":["偶爾乾，多半是環境；","一直乾，要找原因。"],"r":[["McDermott AM. Exp Eye Res. 2013;117:53-61.","https://pubmed.ncbi.nlm.nih.gov/23880529/"],["Dawes C, et al. Arch Oral Biol. 2015;60(6):863-74.","https://pubmed.ncbi.nlm.nih.gov/25841068/"],["Tsubota K. Prog Retin Eye Res. 1998;17(4):565-96.","https://pubmed.ncbi.nlm.nih.gov/9777650/"],["Lin PY, et al. Ophthalmology. 2003;110(6):1096-101.","https://pubmed.ncbi.nlm.nih.gov/12799232/"],["Liew MS, et al. Br J Ophthalmol. 2012;96(12):1498-503.","https://pubmed.ncbi.nlm.nih.gov/23001257/"],["Weng MY, et al. J Rheumatol. 2011;38(4):706-8.","https://pubmed.ncbi.nlm.nih.gov/21239759/"],["Brito-Zerón P, et al. Nat Rev Dis Primers. 2016;2:16047.","https://pubmed.ncbi.nlm.nih.gov/27383445/"],["Shiboski CH, et al. Arthritis Rheumatol. 2017;69(1):35-45.","https://pubmed.ncbi.nlm.nih.gov/27785888/"]],"c":{"a":"#2a2236","b":"#74463a","h":"#865743","v":"#d9a86c","g":"#171420","b1":"#c9783e","b2":"#f0c060","s":"#f0c060","sg":"rgba(240,192,96,.22)"}},{"n":"寒露","s":"hanlu","g":"露氣寒冷，將凝結也。","t":"太陽到達黃經 195°。露水更涼，快要凝成霜。","h":[["鴻雁來賓","鴈以仲秋先至者為主，季秋後至者為賓。","候鳥不是同一天到齊。先到的像主人，晚到的像客人，這是最後一批南下的雁。台灣少見雁群，但每年秋天，黑面琵鷺會飛抵台南七股一帶度冬。"],["雀入大水為蛤","寒風嚴肅，多入于海。變之為蛤，此飛物化為潛物也。","深秋雀鳥南遷或躲藏，海邊正好看到很多蛤蜊，殼上的斑紋又和雀羽相像，古人就把兩件事連成一件。雀鳥沒有變成蛤，只是飛走了。"],["菊有黃華","草木皆華于陽，獨菊華于陰。","菊花是「短日照植物」，要等夜晚夠長才會形成花苞，所以別的花謝了它才開。彰化田尾的菊花田晚上點燈，就是用光照騙過它，把開花的時間往後延。"]],"no":"23","tp":"長輩的疫苗","q":["免疫系統，","也會變老嗎？"],"a":["免疫會變老；","陪長輩把疫苗補齊。"],"r":[["Pfister G, Savino W. Neuroimmunomodulation. 2008;15(4-6):351-64.","https://pubmed.ncbi.nlm.nih.gov/19047811/"],["Zlamy M, Prelog M. Rejuvenation Res. 2009;12(4):249-58.","https://pubmed.ncbi.nlm.nih.gov/19673593/"],["Lin YH, et al. Vaccine. 2010;28(5):1217-20.","https://pubmed.ncbi.nlm.nih.gov/19944790/"],["Cunningham AL, et al. N Engl J Med. 2016;375(11):1019-32.","https://pubmed.ncbi.nlm.nih.gov/27626517/"],["DiazGranados CA, et al. N Engl J Med. 2014;371(7):635-45.","https://pubmed.ncbi.nlm.nih.gov/25119609/"]],"c":{"a":"#12262b","b":"#2c6460","h":"#366b64","v":"#aec793","g":"#0b161a","b1":"#2f8f83","b2":"#d9a53a","s":"#d9a53a","sg":"rgba(217,165,58,.22)"}},{"n":"霜降","s":"shuangjiang","g":"氣肅而凝露結為霜矣。","t":"太陽到達黃經 210°。秋季最後一個節氣；北方清晨開始見霜。","h":[["豺乃祭獸","祭獸，以獸而祭天，報本也。","豺是成群獵食的野生犬科動物。入冬前獵物肥、獵捕多，古人看到獵物成堆，解讀成陳列祭天。這和「獺祭魚」「鷹乃祭鳥」是同一種看法。"],["草木黃落","色黃而搖落也。","白天變短、氣溫下降，樹葉裡的葉綠素分解，原本被蓋住的黃色、橙色色素顯現出來。樹同時在葉柄基部長出離層，把葉子切斷，減少冬天的水分散失。"],["蟄蟲咸俯","此時寒氣肅凜，蟲皆垂頭而不食矣。","「咸」是全部，「俯」是低頭不動。昆蟲進入滯育，蛙和蛇進入冬眠，代謝降到很低，幾乎不吃不動，靠體內儲存的脂肪撐過冬天。"]],"no":"24","tp":"雷諾氏現象","q":["手指一冷就發白，","只是怕冷嗎？"],"a":["手指發白，先保暖；","破皮變硬，要找原因。"],"r":[["Herrick A, Muir L. BMJ Clin Evid. 2014;2014:1125.","https://pubmed.ncbi.nlm.nih.gov/25322727/"],["Maverakis E, et al. J Autoimmun. 2014;48-49:60-5.","https://pubmed.ncbi.nlm.nih.gov/24491823/"],["Garner R, et al. BMJ Open. 2015;5(3):e006389.","https://pubmed.ncbi.nlm.nih.gov/25776043/"],["Spencer-Green G. Arch Intern Med. 1998;158(6):595-600.","https://pubmed.ncbi.nlm.nih.gov/9521223/"],["Haque A, Hughes M. Clin Med (Lond). 2020;20(6):580-7.","https://pubmed.ncbi.nlm.nih.gov/33199324/"],["Koenig M, et al. Arthritis Rheum. 2008;58(12):3902-12.","https://pubmed.ncbi.nlm.nih.gov/19035499/"]],"c":{"a":"#1f2438","b":"#54587f","h":"#5d5f83","v":"#d2b2b5","g":"#121421","b1":"#5a6bb0","b2":"#e08aa0","s":"#e08aa0","sg":"rgba(224,138,160,.22)"}},{"n":"立冬","s":"lidong","g":"冬，終也，萬物收藏也。","t":"太陽到達黃經 225°。冬季從這天起算；「冬」是終，作物收進倉，動物準備過冬。","h":[["水始冰","水面初凝，未至于堅也。","水結冰從表面開始：夜裡水面先散熱降到冰點，結成薄冰，白天又化掉。這是黃河流域的景象；台灣平地不結冰，只有高山在寒流時可能結霜、結冰。"],["地始凍","土氣凝寒，未至于拆。","土壤裡的水開始結冰，地表變硬，但還沒凍到裂開。土是不錯的保溫層，越深溫度越穩定，許多動物和植物的根就在凍土層下過冬。"],["雉入大水為蜃","車螯，是大蛤，一名蜃，能吐氣為樓臺。","蜃是大蛤。入冬後野雞少見，海邊卻有花紋相似的大蛤，古人以為是雉變的。古人還相信蜃吐氣會形成樓臺，「海市蜃樓」因此得名；那其實是光線穿過冷熱不同的空氣時發生折射。"]],"no":"01","tp":"凍瘡","q":["台灣很少下雪，","為什麼還會長凍瘡？"],"a":["多數凍瘡會好，","少數值得多看一眼。"],"r":[["Cappel JA, Wetter DA. Mayo Clin Proc. 2014;89(2):207-15.","https://pubmed.ncbi.nlm.nih.gov/24485134/"],["Prakash S, Weisman MH. Am J Med. 2009;122(12):1152-5.","https://pubmed.ncbi.nlm.nih.gov/19958897/"],["Nyssen A, et al. Vasa. 2020;49(2):133-40.","https://pubmed.ncbi.nlm.nih.gov/31808732/"],["Handford C, et al. Extrem Physiol Med. 2014;3:7.","https://pubmed.ncbi.nlm.nih.gov/24764516/"],["Maverakis E, et al. J Autoimmun. 2014;48-49:60-5.","https://pubmed.ncbi.nlm.nih.gov/24491823/"],["Rustin MH, et al. Br J Dermatol. 1989;120(2):267-75.","https://pubmed.ncbi.nlm.nih.gov/2647123/"],["Souwer IH, et al. Ann Fam Med. 2016;14(5):453-9.","https://pubmed.ncbi.nlm.nih.gov/27621162/"],["Viguier M, et al. Medicine (Baltimore). 2001;80(3):180-8.","https://pubmed.ncbi.nlm.nih.gov/11388094/"],["Hedrich CM, et al. Clin Rheumatol. 2008;27(8):949-54.","https://pubmed.ncbi.nlm.nih.gov/18543054/"]],"c":{"a":"#12234a","b":"#1d376a","h":"#252c5b","v":"#272957","g":"#0b142a","b1":"#e8505b","b2":"#f07a5a","s":"#f18567","sg":"rgba(241,133,103,.22)"}},{"n":"小雪","s":"xiaoxue","g":"雨下而為寒氣所薄，故凝而為雪。小者，未盛之辭。","t":"太陽到達黃經 240°。北方開始下雪，雪量還不大。","h":[["虹藏不見","陰陽氣交而為虹，此時陰陽極乎辨，故虹伏。","彩虹要有陽光和雨滴同時出現。冬天很少下陣雨，北方的降水又變成雪，雪花不像水滴能把光折成彩虹，所以看不到虹。"],["天氣上升|地氣下降","天地變而各正其位，不交則不通。","古人認為天氣、地氣不再交流，所以成冬。現代氣象裡有個相似的現象：冬天地面冷、上層暖，形成逆溫層，空氣上下不易對流，髒空氣散不掉，空氣品質常在這時變差。"],["閉塞而成冬","不通則閉塞，而時之所以為冬也。","冬天不是因為地球離太陽遠。北半球這時偏離太陽，陽光斜射、白天又短，每天收到的熱量比散掉的少，氣溫一路下降。"]],"no":"02","tp":"皮膚乾癢","q":["天一冷，皮膚就","乾、癢、掉屑？"],"a":["多數乾癢靠保濕，","少數值得多看一眼。"],"r":[["Engebretsen KA, et al. J Eur Acad Dermatol Venereol. 2016;30(2):223-49.","https://pubmed.ncbi.nlm.nih.gov/26449379/"],["Rogers J, et al. Arch Dermatol Res. 1996;288(12):765-70.","https://pubmed.ncbi.nlm.nih.gov/8950457/"],["Augustin M, et al. J Eur Acad Dermatol Venereol. 2019;33(1):147-50.","https://pubmed.ncbi.nlm.nih.gov/29953684/"],["Paul C, et al. Dermatology. 2011;223(3):260-5.","https://pubmed.ncbi.nlm.nih.gov/22104182/"],["Hahnel E, et al. Int J Nurs Stud. 2017;70:1-10.","https://pubmed.ncbi.nlm.nih.gov/28214613/"],["Herrero-Fernandez M, et al. J Clin Med. 2022;11(2):298.","https://pubmed.ncbi.nlm.nih.gov/35053992/"],["Chiang C, Eichenfield LF. Pediatr Dermatol. 2009;26(3):273-8.","https://pubmed.ncbi.nlm.nih.gov/19706087/"],["Augustin M, et al. J Dtsch Dermatol Ges. 2019;17 Suppl 7:3-33.","https://pubmed.ncbi.nlm.nih.gov/31738016/"],["Griffiths CEM, et al. Lancet. 2021;397(10281):1301-15.","https://pubmed.ncbi.nlm.nih.gov/33812489/"],["Sreya R, et al. Inflammopharmacology. 2023;31(4):1761-78.","https://pubmed.ncbi.nlm.nih.gov/37326755/"],["Alinaghi F, et al. J Am Acad Dermatol. 2019;80(1):251-65.","https://pubmed.ncbi.nlm.nih.gov/29928910/"],["Villani AP, et al. J Am Acad Dermatol. 2015;73(2):242-8.","https://pubmed.ncbi.nlm.nih.gov/26054432/"],["Wilson FC, et al. Arthritis Rheum. 2009;61(2):233-9.","https://pubmed.ncbi.nlm.nih.gov/19177544/"],["Taylor W, et al. Arthritis Rheum. 2006;54(8):2665-73.","https://pubmed.ncbi.nlm.nih.gov/16871531/"],["Haroon M, et al. Ann Rheum Dis. 2015;74(6):1045-50.","https://pubmed.ncbi.nlm.nih.gov/24525911/"]],"c":{"a":"#0f2444","b":"#1a3c6c","h":"#213462","v":"#24325f","g":"#0a1427","b1":"#3d8fe0","b2":"#7c6cf2","s":"#a196f6","sg":"rgba(161,150,246,.22)"}},{"n":"大雪","s":"daxue","g":"大者，盛也。","t":"太陽到達黃經 255°。北方的雪變大、變多；台灣只有高山可能降雪。","h":[["鶡鴠不鳴","鶡，毅鳥也。似雉而大，有毛角，鬥死方休。","這一候說的是哪種動物，古人有兩種說法。《集解》認為是一種好鬥的鳥，也就是今天的褐馬雞；另一說是「寒號蟲」，現在一般認為是複齒鼯鼠。不管哪一種，天寒日短時都安靜下來。"],["虎始交","今感微陽氣，益甚也，故相與而交。","北方的老虎多在冬季到初春交配，懷孕約三個半月，幼虎在春夏出生，那時獵物多、天氣暖，存活機會比較高。交配的季節，是配合生產的季節倒推回來的。"],["荔挺出","荔似蒲而小，根可為刷。","荔不是荔枝，是馬藺，一種葉子細長堅韌的鳶尾科植物，耐寒又耐旱。古人看到它在嚴冬仍有新芽挺出，把它當成陽氣將要回升的訊號。"]],"no":"03","tp":"白血球","q":["健檢報告上，","白血球有紅字？"],"a":["多數紅字先複檢，","少數值得多看一眼。"],"r":[["Wu X, et al. PLoS One. 2015;10(3):e0119669.","https://pubmed.ncbi.nlm.nih.gov/25769040/"],["Riley LK, Rupert J. Am Fam Physician. 2015;92(11):1004-11.","https://pubmed.ncbi.nlm.nih.gov/26760415/"],["Abramson N, Melton B. Am Fam Physician. 2000;62(9):2053-60.","https://pubmed.ncbi.nlm.nih.gov/11087187/"],["Mayadas TN, et al. Annu Rev Pathol. 2014;9:181-218.","https://pubmed.ncbi.nlm.nih.gov/24050624/"],["Bonilla FA, Oettgen HC. J Allergy Clin Immunol. 2010;125(2 Suppl 2):S33-40.","https://pubmed.ncbi.nlm.nih.gov/20061006/"],["Shi C, Pamer EG. Nat Rev Immunol. 2011;11(11):762-74.","https://pubmed.ncbi.nlm.nih.gov/21984070/"],["Voehringer D. Nat Rev Immunol. 2013;13(5):362-75.","https://pubmed.ncbi.nlm.nih.gov/23558889/"],["Higuchi T, et al. Prev Med Rep. 2016;4:417-22.","https://pubmed.ncbi.nlm.nih.gov/27583199/"],["Hsieh MM, et al. Ann Intern Med. 2007;146(7):486-92.","https://pubmed.ncbi.nlm.nih.gov/17404350/"],["Andersen CL, et al. J Intern Med. 2016;279(6):566-75.","https://pubmed.ncbi.nlm.nih.gov/26791682/"],["Carli L, et al. Semin Arthritis Rheum. 2015;45(2):190-4.","https://pubmed.ncbi.nlm.nih.gov/26170228/"],["Aringer M, et al. Ann Rheum Dis. 2019;78(9):1151-9.","https://pubmed.ncbi.nlm.nih.gov/31383717/"]],"c":{"a":"#0f2444","b":"#1a3c6c","h":"#213462","v":"#24325f","g":"#0a1427","b1":"#3d8fe0","b2":"#7c6cf2","s":"#a196f6","sg":"rgba(161,150,246,.22)"}},{"n":"冬至","s":"dongzhi","g":"終藏之氣至此而極也。","t":"太陽到達黃經 270°，直射南回歸線。北半球白天最短，此後一天天變長。","h":[["蚯蚓結","六陰寒極之時，蚯蚓交相結而如繩也。","天冷時蚯蚓鑽到不結凍的深層土壤，把身體蜷成一團、裹上黏液，減少水分散失，進入休眠。古人挖到這樣的蚯蚓，就說牠們打了結。"],["麋角解","冬至一陽生，麋感陽氣而角解矣。","麋是麋鹿，俗稱四不像。麋鹿在夏天發情，比多數的鹿早一季，鹿角的週期也跟著提前，冬天就脫角，和古書記的相符。鹿角的生長由日照長短和雄性荷爾蒙控制，每個物種各有時間表。"],["水泉動","水者，天一之陽所生，陽生而動，今一陽初生故云耳。","地下水的溫度全年變化很小，大致等於當地的年平均氣溫。冬天地面結冰時，井水和泉水相對溫暖，照常流動、還冒著水氣，古人看成陽氣在地下萌動。"]],"no":"04","tp":"維生素 D","q":["白天最短的一天，","維生素 D 夠嗎？"],"a":["多數人靠陽光和飲食，","少數人才需要補充。"],"r":[["Holick MF. Am J Clin Nutr. 2004;80(6 Suppl):1678S-88S.","https://pubmed.ncbi.nlm.nih.gov/15585788/"],["Holick MF. Ann Epidemiol. 2009;19(2):73-8.","https://pubmed.ncbi.nlm.nih.gov/18329892/"],["Aranow C. J Investig Med. 2011;59(6):881-6.","https://pubmed.ncbi.nlm.nih.gov/21527855/"],["Liu PT, et al. Science. 2006;311(5768):1770-3.","https://pubmed.ncbi.nlm.nih.gov/16497887/"],["Webb AR, et al. J Clin Endocrinol Metab. 1988;67(2):373-8.","https://pubmed.ncbi.nlm.nih.gov/2839537/"],["Lee MJ, et al. BMC Public Health. 2019;19(1):337.","https://pubmed.ncbi.nlm.nih.gov/30902083/"],["Tuchinda C, et al. J Am Acad Dermatol. 2006;54(5):845-54.","https://pubmed.ncbi.nlm.nih.gov/16635665/"],["Duarte I, et al. Photodermatol Photoimmunol Photomed. 2009;25(4):181-4.","https://pubmed.ncbi.nlm.nih.gov/19614895/"],["Schmid A, Walther B. Adv Nutr. 2013;4(4):453-62.","https://pubmed.ncbi.nlm.nih.gov/23858093/"],["Cardwell G, et al. Nutrients. 2018;10(10):1498.","https://pubmed.ncbi.nlm.nih.gov/30322118/"],["Neale RE, et al. Br J Dermatol. 2019;181(5):907-15.","https://pubmed.ncbi.nlm.nih.gov/30945275/"],["Jolliffe DA, et al. Lancet Diabetes Endocrinol. 2025;13(4):307-20.","https://pubmed.ncbi.nlm.nih.gov/39993397/"],["Hahn J, et al. BMJ. 2022;376:e066452.","https://pubmed.ncbi.nlm.nih.gov/35082139/"],["Costenbader KH, et al. Arthritis Rheumatol. 2024;76(6):973-83.","https://pubmed.ncbi.nlm.nih.gov/38272846/"],["Ross AC, et al. J Clin Endocrinol Metab. 2011;96(1):53-8.","https://pubmed.ncbi.nlm.nih.gov/21118827/"],["Demay MB, et al. J Clin Endocrinol Metab. 2024;109(8):1907-47.","https://pubmed.ncbi.nlm.nih.gov/38828931/"],["Kamen DL, et al. Autoimmun Rev. 2006;5(2):114-7.","https://pubmed.ncbi.nlm.nih.gov/16431339/"]],"c":{"a":"#0f2444","b":"#1a3c6c","h":"#213462","v":"#24325f","g":"#0a1427","b1":"#3d8fe0","b2":"#7c6cf2","s":"#a196f6","sg":"rgba(161,150,246,.22)"}},{"n":"小寒","s":"xiaohan","g":"月初寒尚小，故云。月半則大矣。","t":"太陽到達黃經 285°。進入一年最冷的時段；白天已開始變長，氣溫卻還在降。","h":[["雁北鄉","今則鄉北飛之，至立春後皆歸矣，禽鳥得氣之先故也。","「鄉」同「向」。最冷的時候，雁卻開始朝北移動，因為牠們看的是日照：冬至後白天變長，體內荷爾蒙隨之改變，準備北返。古注說禽鳥最先感受到節氣的變化。"],["鵲始巢","至後二陽已得來年之節氣，鵲遂可為巢，知所向也。","喜鵲是很早開始繁殖的鳥，冬天還沒過完就銜枝築巢，一個巢要蓋上一個多月。日照變長啟動了牠們的繁殖荷爾蒙，築巢是第一步。"],["雉始雊","雊，雌雄之同鳴也，感于陽而後有聲。","這一候說的是雉雞開始鳴叫。冬至後白天變長，光線刺激鳥類的腦部，雄雉的性荷爾蒙上升，開始鳴叫、宣告地盤。古人說「感于陽」，說的正是感光。"]],"no":"05","tp":"著涼與感冒","q":["著涼，","真的會感冒嗎？"],"a":["多數感冒會自己好，","少數值得多看一眼。"],"r":[["Heikkinen T, Järvinen A. Lancet. 2003;361(9351):51-9.","https://pubmed.ncbi.nlm.nih.gov/12517470/"],["Huang D, et al. J Allergy Clin Immunol. 2023;151(2):509-25.","https://pubmed.ncbi.nlm.nih.gov/36494212/"],["Foxman EF, et al. Proc Natl Acad Sci U S A. 2015;112(3):827-32.","https://pubmed.ncbi.nlm.nih.gov/25561542/"],["Eccles R. Acta Otolaryngol. 2002;122(2):183-91.","https://pubmed.ncbi.nlm.nih.gov/11936911/"],["Johnson C, Eccles R. Fam Pract. 2005;22(6):608-13.","https://pubmed.ncbi.nlm.nih.gov/16286463/"],["Jefferson T, et al. Cochrane Database Syst Rev. 2023;1(1):CD006207.","https://pubmed.ncbi.nlm.nih.gov/36715243/"],["Demicheli V, et al. Cochrane Database Syst Rev. 2018;2(2):CD001269.","https://pubmed.ncbi.nlm.nih.gov/29388196/"],["Kenealy T, Arroll B. Cochrane Database Syst Rev. 2013;(6):CD000247.","https://pubmed.ncbi.nlm.nih.gov/23733381/"],["DeGeorge KC, et al. Am Fam Physician. 2019;100(5):281-9.","https://pubmed.ncbi.nlm.nih.gov/31478634/"],["Monto AS, et al. Arch Intern Med. 2000;160(21):3243-7.","https://pubmed.ncbi.nlm.nih.gov/11088084/"]],"c":{"a":"#0f2444","b":"#1a3c6c","h":"#213462","v":"#24325f","g":"#0a1427","b1":"#3d8fe0","b2":"#7c6cf2","s":"#a196f6","sg":"rgba(161,150,246,.22)"}},{"n":"大寒","s":"dahan","g":"月半則大矣。","t":"太陽到達黃經 300°。二十四節氣的最後一個，過完就是立春。","h":[["雞始乳","雞木畜，麗于陽而有形，故乳在立春節也。","「乳」是生育。母雞下蛋受日照長度控制：白天變長，光線刺激腦部，促使卵巢活動。現代蛋雞場在冬天延長照明時間，用的就是這個原理。"],["征鳥厲疾","殺伐之鳥，乃鷹隼之屬；至此而猛厲迅疾也。","征鳥是鷹、隼等猛禽。天越冷，維持體溫要燒掉越多能量，獵物又少，牠們必須更積極地獵捕。冬天樹葉落盡、視野開闊，也讓獵捕看起來特別凌厲。"],["水澤腹堅","冰之初凝，水面而已，至此則徹，上下皆凝。","「腹」是內部，冰從水面一路結到深處。最冷的時候不在冬至，而在大約一個月後：地面和海洋累積的熱要慢慢散掉，氣溫的最低點因此落在大寒前後。"]],"no":"06","tp":"大掃除與過敏","q":["年前大掃除，","怎麼越掃越咳？"],"a":["多數的咳，通風就好；","少數的喘，及早就醫。"],"r":[["Tovey ER, et al. Am Rev Respir Dis. 1981;124(5):630-5.","https://pubmed.ncbi.nlm.nih.gov/7305119/"],["Fisk WJ, et al. Indoor Air. 2007;17(4):284-96.","https://pubmed.ncbi.nlm.nih.gov/17661925/"],["Zock JP, et al. Am J Respir Crit Care Med. 2007;176(8):735-41.","https://pubmed.ncbi.nlm.nih.gov/17585104/"],["Matulonga B, et al. Respir Med. 2016;117:264-71.","https://pubmed.ncbi.nlm.nih.gov/27492540/"],["Ferro AR, et al. Environ Sci Technol. 2004;38(6):1759-64.","https://pubmed.ncbi.nlm.nih.gov/15074686/"],["Gore RB, et al. Allergy. 2006;61(1):119-23.","https://pubmed.ncbi.nlm.nih.gov/16364166/"],["Gorguner M, et al. Inhal Toxicol. 2004;16(2):87-91.","https://pubmed.ncbi.nlm.nih.gov/15204781/"],["Pascuzzi TA, Storrow AB. Mil Med. 1998;163(2):102-4.","https://pubmed.ncbi.nlm.nih.gov/9503902/"],["Sauni R, et al. Cochrane Database Syst Rev. 2015;2015(2):CD007897.","https://pubmed.ncbi.nlm.nih.gov/25715323/"],["Bernstein JA, et al. Ann Allergy Asthma Immunol. 2009;102(1):41-6.","https://pubmed.ncbi.nlm.nih.gov/19205284/"],["Mrvos R, et al. South Med J. 1993;86(6):654-7.","https://pubmed.ncbi.nlm.nih.gov/8506487/"]],"c":{"a":"#0f2444","b":"#1a3c6c","h":"#213462","v":"#24325f","g":"#0a1427","b1":"#3d8fe0","b2":"#7c6cf2","s":"#a196f6","sg":"rgba(161,150,246,.22)"}},{"n":"立春","s":"lichun","g":"春木之氣始至，故謂之立也。","t":"太陽到達黃經 315°。「立」是開始；按節氣的算法，春季從這天起算。","h":[["東風解凍","凍結于冬，遇春風而解散。","冬季的西北季風減弱，偏東、偏南的暖濕氣流開始北上。氣溫回到冰點以上，凍了一冬的土壤和河面跟著融化。"],["蟄蟲始振","密藏之蟲，因氣至，而皆蘇動之矣。","昆蟲、蛙、蛇是變溫動物，體溫跟著環境走。土壤一回暖，冬眠中的牠們代謝加快，開始在洞裡活動，只是還沒出來。"],["魚陟負冰","魚當盛寒伏水底而遂暖，至正月陽氣至，則上游而近冰，故曰負。","水在攝氏 4 度時密度最大，會沉到湖底，所以冰面下的深水反而比較暖，魚在那裡過冬。表層回暖後，魚游上來貼近還沒化完的薄冰，看起來像背著冰。"]],"no":"07","tp":"痛風","q":["年菜配酒，","痛風會找上門？"],"a":["多數年菜，適量就好；","少數發作，及早就醫。"],"r":[["Choi HK, et al. N Engl J Med. 2004;350(11):1093-103.","https://pubmed.ncbi.nlm.nih.gov/15014182/"],["Choi HK, et al. Lancet. 2004;363(9417):1277-81.","https://pubmed.ncbi.nlm.nih.gov/15094272/"],["Choi HK, Curhan G. BMJ. 2008;336(7639):309-12.","https://pubmed.ncbi.nlm.nih.gov/18244959/"],["Dalbeth N, et al. Lancet. 2021;397(10287):1843-1855.","https://pubmed.ncbi.nlm.nih.gov/33798500/"],["Major TJ, et al. BMJ. 2018;363:k3951.","https://pubmed.ncbi.nlm.nih.gov/30305269/"],["Zhang Y, et al. Ann Rheum Dis. 2012;71(9):1448-53.","https://pubmed.ncbi.nlm.nih.gov/22648933/"],["Kuo CF, et al. Ann Rheum Dis. 2015;74(2):369-74.","https://pubmed.ncbi.nlm.nih.gov/24265412/"],["FitzGerald JD, et al. Arthritis Care Res (Hoboken). 2020;72(6):744-760.","https://pubmed.ncbi.nlm.nih.gov/32391934/"],["Kuo CF, et al. Arthritis Res Ther. 2015;17:13.","https://pmc.ncbi.nlm.nih.gov/articles/PMC4342824/"]],"c":{"a":"#191f4c","b":"#34307a","h":"#4a2f6e","v":"#512f6a","g":"#0e122b","b1":"#e2567f","b2":"#7c6cf2","s":"#a196f6","sg":"rgba(161,150,246,.22)"}},{"n":"雨水","s":"yushui","g":"東風既解凍，則散而為雨水矣。","t":"太陽到達黃經 330°。北方的降水由雪轉為雨，雨量開始增加。","h":[["獺祭魚","祭魚，取魚以祭天也。","河冰化開，魚游到淺水。水獺習慣把抓到的魚帶上岸再吃，魚多的時候，岸邊會留下好幾條。古人看了，覺得牠像在擺供品祭拜。"],["候雁北","鴈，知時之鳥。熱歸塞北，寒來江南。","雁在北方繁殖、南方度冬。白天一變長，牠們體內的荷爾蒙跟著改變，開始大吃、囤積脂肪，然後成群北返。候鳥看的是日照長短，不只是冷暖。"],["草木萌動","天地之氣交而為泰，故草木萌生發動矣。","植物靠累積的溫度和日照長度判斷春天到了沒。芽要先在冬天的低溫裡完成休眠，再等暖的日子累積夠了才萌發，這樣比較不會被一次短暫回暖騙出來。"]],"no":"08","tp":"天氣與關節痛","q":["下雨前，","關節真的會先痛？"],"a":["多數痠痛，保暖多動；","少數腫痛，及早就醫。"],"r":[["Dixon WG, et al. NPJ Digit Med. 2019;2:105.","https://pmc.ncbi.nlm.nih.gov/articles/PMC6811599/"],["Jena AB, et al. BMJ. 2017;359:j5326.","https://pubmed.ncbi.nlm.nih.gov/29237605/"],["Ferreira ML, et al. Semin Arthritis Rheum. 2024;65:152392.","https://pubmed.ncbi.nlm.nih.gov/38340613/"],["Smedslund G, Hagen KB. Eur J Pain. 2011;15(1):5-10.","https://pubmed.ncbi.nlm.nih.gov/20570193/"],["Iikuni N, et al. Rheumatology (Oxford). 2007;46(5):846-8.","https://pubmed.ncbi.nlm.nih.gov/17264092/"],["Smolen JS, et al. Ann Rheum Dis. 2023;82(1):3-18.","https://pubmed.ncbi.nlm.nih.gov/36357155/"]],"c":{"a":"#0e2748","b":"#1a4a72","h":"#1b546e","v":"#1c576d","g":"#091629","b1":"#2b8fe0","b2":"#2bb5a6","s":"#2bb5a6","sg":"rgba(43,181,166,.22)"}},{"n":"驚蟄","s":"jingzhe","g":"萬物出乎震，震為雷，故曰驚蟄。","t":"太陽到達黃經 345°。春雷初響的時節；真正叫醒蟄蟲的，是回升的氣溫。","h":[["桃始華","桃，果名，花色紅，是月始開。","「華」就是花。桃樹的花芽前一年夏天就長好了，必須先經過一段夠長的低溫才會解除休眠，回暖後才開。暖冬的年份，花反而開得零零落落。"],["倉庚鳴","倉，清也；庚，新也；感春陽清新之氣而初出，故名。","倉庚是黃鸝。春天日照變長，雄鳥的性荷爾蒙上升，開始鳴唱，用歌聲占地盤、吸引雌鳥。鳥鳴是繁殖季開始的聲音。"],["鷹化為鳩","鷹，鷙鳥也，鷂鸇之屬。鳩，即今之布穀。","物種不會互相變來變去。春天鷹類北返或躲進樹林繁殖，布穀鳥（大杜鵑）正好飛來。大杜鵑的體型和腹部橫紋很像雀鷹，實驗發現小鳥真的會把牠當成鷹，古人也看走眼了。"]],"no":"09","tp":"塵蟎","q":["驚蟄到，","床上的塵蟎醒了？"],"a":["多數過敏，除濕勤洗；","少數喘鳴，及早就醫。"],"r":[["Miller JD. Clin Rev Allergy Immunol. 2019;57(3):312-329.","https://pubmed.ncbi.nlm.nih.gov/29936683/"],["Tovey ER, et al. Am Rev Respir Dis. 1981;124(5):630-5.","https://pubmed.ncbi.nlm.nih.gov/7305119/"],["Wu FF, et al. J Asthma. 2014;51(1):75-8.","https://pubmed.ncbi.nlm.nih.gov/24024879/"],["Arlian LG, et al. J Allergy Clin Immunol. 2001;107(1):99-104.","https://pubmed.ncbi.nlm.nih.gov/11149998/"],["McDonald LG, Tovey E. J Allergy Clin Immunol. 1992;90(4 Pt 1):599-608.","https://pubmed.ncbi.nlm.nih.gov/1401643/"],["Chang CF, et al. Pediatr Allergy Immunol. 2011;22(6):638-41.","https://pubmed.ncbi.nlm.nih.gov/21332802/"],["Wu FF, et al. J Asthma. 2012;49(2):139-43.","https://pubmed.ncbi.nlm.nih.gov/22316179/"],["Leas BF, et al. J Allergy Clin Immunol. 2018;141(5):1854-1869.","https://pubmed.ncbi.nlm.nih.gov/29452202/"],["Murray CS, et al. Am J Respir Crit Care Med. 2017;196(2):150-158.","https://pubmed.ncbi.nlm.nih.gov/28282501/"],["Sheikh A, et al. Cochrane Database Syst Rev. 2010;(7):CD001563.","https://pubmed.ncbi.nlm.nih.gov/20614426/"]],"c":{"a":"#181c4a","b":"#2c3878","h":"#2c5065","v":"#2c5760","g":"#0e102a","b1":"#6f7cf0","b2":"#3fb58a","s":"#3fb58a","sg":"rgba(63,181,138,.22)"}}],"cwa":["2026-11-07T17:52","2026-11-22T15:23","2026-12-07T10:52","2026-12-22T04:50","2027-01-05T22:10","2027-01-20T15:30","2027-02-04T09:46","2027-02-19T05:33","2027-03-06T03:40","2027-03-21T04:25","2027-04-05T08:17","2027-04-20T15:18","2027-05-06T01:25","2027-05-21T14:18","2027-06-06T05:26","2027-06-21T22:11","2027-07-07T15:37","2027-07-23T09:05","2027-08-08T01:27","2027-08-23T16:14","2027-09-08T04:28","2027-09-23T14:02","2027-10-08T20:17","2027-10-23T23:33","2027-11-07T23:39"]};
+/* 太陽視黃經（VSOP87 截斷級數，Meeus《Astronomical Algorithms》附錄 III）＋章動＋光行差 */
+const L0=[[175347046,0,0],[3341656,4.6692568,6283.07585],[34894,4.6261,12566.1517],[3497,2.7441,5753.3849],[3418,2.8289,3.5231],[3136,3.6277,77713.7715],[2676,4.4181,7860.4194],[2343,6.1352,3930.2097],[1324,0.7425,11506.7698],[1273,2.0371,529.691],[1199,1.1096,1577.3435],[990,5.233,5884.927],[902,2.045,26.298],[857,3.508,398.149],[780,1.179,5223.694],[753,2.533,5507.553],[505,4.583,18849.228],[492,4.205,775.523],[357,2.92,0.067],[317,5.849,11790.629],[284,1.899,796.298],[271,0.315,10977.079],[243,0.345,5486.778],[206,4.806,2544.314],[205,1.869,5573.143],[202,2.458,6069.777],[156,0.833,213.299],[132,3.411,2942.463],[126,1.083,20.775],[115,0.645,0.98],[103,0.636,4694.003],[102,0.976,15720.839],[102,4.267,7.114],[99,6.21,2146.17],[98,0.68,155.42],[86,5.98,161000.69],[85,1.3,6275.96],[85,3.67,71430.7],[80,1.81,17260.15],[79,3.04,12036.46],[75,1.76,5088.63],[74,3.5,3154.69],[74,4.68,801.82],[70,0.83,9437.76],[62,3.98,8827.39],[61,1.82,7084.9],[57,2.78,6286.6],[56,4.39,14143.5],[56,3.47,6279.55],[52,0.19,12139.55],[52,1.33,1748.02],[51,0.28,5856.48],[49,0.49,1194.45],[41,5.37,8429.24],[41,2.4,19651.05],[39,6.17,10447.39],[37,6.04,10213.29],[37,2.57,1059.38],[36,1.71,2352.87],[36,1.78,6812.77],[33,0.59,17789.85],[30,0.44,83996.85],[30,2.74,1349.87],[25,3.16,4690.48]];
+const L1=[[628331966747,0,0],[206059,2.678235,6283.07585],[4303,2.6351,12566.1517],[425,1.59,3.523],[119,5.796,26.298],[109,2.966,1577.344],[93,2.59,18849.23],[72,1.14,529.69],[68,1.87,398.15],[67,4.41,5507.55],[59,2.89,5223.69],[56,2.17,155.42],[45,0.4,796.3],[36,0.47,775.52],[29,2.65,7.11],[21,5.34,0.98],[19,1.85,5486.78],[19,4.97,213.3],[17,2.99,6275.96],[16,0.03,2544.31],[16,1.43,2146.17],[15,1.21,10977.08],[12,2.83,1748.02],[12,3.26,5088.63],[12,5.27,1194.45],[12,2.08,4694],[11,0.77,553.57],[10,1.3,6286.6],[10,4.24,1349.87],[9,2.7,242.73],[9,5.64,951.72],[8,5.3,2352.87],[6,2.65,9437.76],[6,4.67,4690.48]];
+const L2=[[52919,0,0],[8720,1.0721,6283.0758],[309,0.867,12566.152],[27,0.05,3.52],[16,5.19,26.3],[16,3.68,155.42],[10,0.76,18849.23],[9,2.06,77713.77],[7,0.83,775.52],[5,4.66,1577.34],[4,1.03,7.11],[4,3.44,5573.14],[3,5.14,796.3],[3,6.05,5507.55],[3,1.19,242.73],[3,6.12,529.69],[3,0.31,398.15],[3,2.28,553.57],[2,4.38,5223.69],[2,3.75,0.98]];
+const L3=[[289,5.844,6283.076],[35,0,0],[17,5.49,12566.15],[3,5.2,155.42],[1,4.72,3.52],[1,5.3,18849.23],[1,5.97,242.73]];
+const L4=[[114,3.142,0],[8,4.13,6283.08],[1,3.84,12566.15]];
+const L5=[[1,3.14,0]];
+const R0=[[100013989,0,0],[1670700,3.0984635,6283.07585],[13956,3.05525,12566.1517],[3084,5.1985,77713.7715],[1628,1.1739,5753.3849],[1576,2.8469,7860.4194]];
+const R1=[[103019,1.10749,6283.07585],[1721,1.0644,12566.1517],[702,3.142,0]];
+const D2R=Math.PI/180, TT_UTC=69.184;            // TT − UTC（2017 年起；秒）
+const ser=(S,t)=>{let s=0;for(const [a,b,c] of S)s+=a*Math.cos(b+c*t);return s;};
+function sunLon(ms){                               // 傳入 UTC 毫秒，回傳太陽視黃經（度，0–360）
+  const jde=ms/86400000+2440587.5+TT_UTC/86400, t=(jde-2451545)/365250, T=t*10;
+  let L=(ser(L0,t)+t*(ser(L1,t)+t*(ser(L2,t)+t*(ser(L3,t)+t*(ser(L4,t)+t*ser(L5,t))))))/1e8;
+  const R=(ser(R0,t)+t*ser(R1,t))/1e8;
+  const Om=(125.04452-1934.136261*T)*D2R, Ls=(280.4665+36000.7698*T)*D2R, Lm=(218.3165+481267.8813*T)*D2R;
+  const dpsi=-17.20*Math.sin(Om)-1.32*Math.sin(2*Ls)-0.23*Math.sin(2*Lm)+0.21*Math.sin(2*Om);  // 章動（角秒）
+  let lam=L/D2R+180+(-0.09033+dpsi-20.4898/R)/3600;
+  return ((lam%360)+360)%360;
+}
+function termTime(year,k){                          // 該年春分後第 k 個 15°（k=0 春分 … 23 驚蟄；k<0 往前）的 UTC 毫秒
+  const target=((k*15)%360+360)%360;
+  let ms=Date.UTC(year,2,20,12)+k*15.2184*86400000;
+  for(let i=0;i<8;i++){let d=target-sunLon(ms);d=((d+540)%360)-180;ms+=d/360*365.2422*86400000;if(Math.abs(d)<1e-8)break;}
+  return ms;
+}
+
+const $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TW=288e5, DAY=864e5, YEAR=365.2422*DAY, STEP=YEAR/24, WK="日一二三四五六", ORD=["初候","二候","三候"], R=150;
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const CW=D.cwa.map(s=>Date.parse(s+":00Z")-TW);
+const dayNo=ms=>Math.floor((ms+TW)/DAY);
+const ymd=d=>{const x=new Date(d*DAY);return[x.getUTCFullYear(),x.getUTCMonth()+1,x.getUTCDate(),x.getUTCDay()]};
+const md=d=>{const a=ymd(d);return a[1]+"/"+a[2]}, mdZh=d=>{const a=ymd(d);return a[1]+" 月 "+a[2]+" 日"};
+// 太陽到達黃經 15k 度的時刻（從 near 附近找起）
+function instant(k,near){const tg=(((k%24)+24)%24)*15;let ms=near;for(let i=0;i<12;i++){let d=tg-sunLon(ms);d=((d+540)%360)-180;ms+=d/360*YEAR;if(Math.abs(d)<1e-7)break}return ms}
+// 顯示用的時刻：氣象署年曆有的年份用年曆的分鐘，其餘四捨五入到分
+function clock(t){const c=CW.find(x=>Math.abs(x-t)<12e4),x=new Date((c!==undefined?c:Math.round(t/6e4)*6e4)+TW),p=n=>String(n).padStart(2,"0");return{m:x.getUTCMonth()+1,d:x.getUTCDate(),hm:p(x.getUTCHours())+":"+p(x.getUTCMinutes())}}
+// 從最近一個立冬起算的二十四個節氣；i 是現在的節氣
+function cycle(now){
+  let k=Math.floor(sunLon(now)/15),t=instant(k,now);const nx=instant(k+1,now);
+  if(dayNo(nx)<=dayNo(now)){k=(k+1)%24;t=nx}
+  const b=((k-15)%24+24)%24,t0=instant(15,t-b*STEP),list=[];
+  for(let i=0;i<=24;i++){const ti=instant(15+i,t0+i*STEP);list.push({k:(15+i)%24,t:ti,d:dayNo(ti)})}
+  return{i:b,list}
+}
+const P=(lam,r)=>{const a=(lam-90)*Math.PI/180;return[r*Math.sin(a),-r*Math.cos(a)]}, f2=n=>n.toFixed(2);
+const FIRST=cycle(Date.UTC(2026,10,10)).list.map(x=>x.d);   // 各集首次上線日（2026 立冬起的一輪）
+let C=cycle(Date.now()), today=dayNo(Date.now()), view=C.i, anim=false, skyTop=0, job=0, blobUrl=null, dog=0;
+const el={ring:$("#ring"),core:$("#core"),when:$("#when"),lead:$("#lead"),pent:$("#pent"),dayn:$("#dayn"),back:$("#back"),f1:$("#f1"),lam:$("#lam"),f3l:$("#f3l"),f3:$("#f3"),
+  houH:$("#houH"),gloss:$("#gloss"),note:$("#note"),ruler:$("#ruler"),hous:$("#hous"),filmH:$("#filmH"),player:$("#player"),poster:$("#poster"),vid:$("#vid"),lockt:$("#lockt"),bar:$("#bar"),
+  ep:$("#ep"),hookq:$("#hookq"),take:$("#take"),refs:$("#refs"),seasons:$("#seasons"),sky:document.querySelectorAll(".sky i")};
+const term=i=>D.terms[C.list[i].k];
+const fromHash=()=>{const h=location.hash.slice(1);if(h==="now")return C.i;const i=C.list.findIndex((x,j)=>j<24&&D.terms[x.k].s===h);return i<0?null:i};
+
+function buildRing(){
+  let s='<defs><linearGradient id="band" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset="1"/></linearGradient></defs><circle r="150" class="rg"/>';
+  for(let i=0;i<72;i++){const lam=i*5,sea=lam%90===45,big=i%3===0,[x1,y1]=P(lam,R),[x2,y2]=P(lam,R-(sea?18:big?11:5));s+=`<line x1="${f2(x1)}" y1="${f2(y1)}" x2="${f2(x2)}" y2="${f2(y2)}" class="tk ${sea?"t3":big?"t2":"t1"}"/>`}
+  "春夏秋冬".split("").forEach((g,i)=>{const[x,y]=P(i*90,113);s+=`<text class="sg" x="${f2(x)}" y="${f2(y)}" aria-hidden="true">${g}</text>`});
+  D.terms.forEach((T,k)=>{const[x,y]=P(k*15+7.5,180);s+=`<g class="tl${k%6?"":" c"}" data-k="${k}"><rect x="${f2(x-21)}" y="${f2(y-15)}" width="42" height="30" rx="4"/><text x="${f2(x)}" y="${f2(y)}">${T.n}</text></g>`});
+  s+='<g id="arcs"></g><g id="sun" aria-hidden="true"><circle r="20" class="s3"/><circle r="12" class="s2"/><circle r="6.5" class="s1"/></g>';
+  el.ring.innerHTML=s;
+  const pick=e=>{const g=e.target.closest(".tl");if(g)select(C.list.findIndex(x=>x.k===+g.dataset.k),false)};
+  el.ring.addEventListener("click",pick);
+}
+const sunAt=lam=>{const[x,y]=P(lam,R);$("#sun").setAttribute("transform",`translate(${f2(x)} ${f2(y)})`)};
+function ring(){
+  const v=C.list[view],T=D.terms[v.k],lam0=v.k*15,isNow=view===C.i,h=isNow?Math.min(2,Math.floor((today-v.d)/5)):-1;
+  const g=$("#band"),[x1,y1]=P(lam0,R),[x2,y2]=P(lam0+15,R),st=g.querySelectorAll("stop");
+  g.setAttribute("x1",f2(x1));g.setAttribute("y1",f2(y1));g.setAttribute("x2",f2(x2));g.setAttribute("y2",f2(y2));
+  st[0].setAttribute("stop-color",T.c.b1);st[1].setAttribute("stop-color",T.c.b2);
+  let a="";for(let j=0;j<3;j++){const A=P(lam0+j*5+.8,R),B=P(lam0+j*5+4.2,R);a+=`<path d="M${f2(A[0])} ${f2(A[1])}A150 150 0 0 1 ${f2(B[0])} ${f2(B[1])}" class="ar${j===h?" on":isNow?"":" all"}"/>`}
+  $("#arcs").innerHTML=a;
+  el.ring.querySelectorAll(".tl").forEach(n=>{const k=+n.dataset.k;n.classList.toggle("v",k===v.k);n.classList.toggle("n",k===C.list[C.i].k)});
+  if(!anim)sunAt(sunLon(Date.now()));
+}
+function paint(c){
+  const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=c.a;const r=document.documentElement.style;r.setProperty("--ground",c.g);r.setProperty("--soft",c.s);r.setProperty("--glow",c.sg);r.setProperty("--accent",c.b2);r.setProperty("--accent-2",c.b1);
+  const n=el.sky[skyTop^=1],o=el.sky[skyTop^1];
+  n.style.transition="none";n.style.opacity=0;n.style.zIndex=2;o.style.zIndex=1;
+  n.style.background=`linear-gradient(180deg,${c.a} 0%,${c.b} 46%,${c.h} 84%,${c.v} 100%)`;
+  void n.offsetWidth;n.style.transition="";n.style.opacity=1;
+}
+function hero(){
+  const cur=C.list[C.i],v=C.list[view],T=D.terms[v.k],[y,m,d,w]=ymd(today),isNow=view===C.i,n=today-v.d,nx=C.list[view+1],end=nx.d-1;
+  el.when.textContent=`台灣時間　${y} 年 ${m} 月 ${d} 日　星期${WK[w]}`;
+  el.lead.innerHTML=(isNow?"現在是":`現在是${D.terms[cur.k].n}，你正在看`)+`<span class="vh">${T.n}</span>`;$("#got").textContent=`這個節氣的免疫學：${T.tp}`;
+  el.core.textContent=T.n;
+  if(isNow){const h=Math.min(2,Math.floor(n/5));el.pent.innerHTML=`<span class="pl">${ORD[h]}</span>${esc(T.h[h][0].replace("|","，"))}`;el.dayn.textContent=`${T.n}的第 ${n+1} 天`}
+  else if(view>C.i){el.pent.textContent=`${mdZh(v.d)}開始`;el.dayn.textContent=`還有 ${v.d-today} 天`}
+  else{el.pent.textContent=`${mdZh(v.d)}到 ${mdZh(end)}`;el.dayn.textContent="這個節氣已經過了"}
+  el.back.hidden=isNow;
+  const c=clock(v.t);el.f1.textContent=`${c.m} 月 ${c.d} 日 ${c.hm}`;
+  if(isNow){el.f3l.textContent="下一個節氣";el.f3.textContent=`${D.terms[nx.k].n}，${mdZh(nx.d)}（${nx.d-today} 天後）`}
+  else{el.f3l.textContent="節氣期間";el.f3.textContent=`${md(v.d)} – ${md(end)}，共 ${nx.d-v.d} 天`}
+  ring();
+}
+function hou(){
+  const v=C.list[view],T=D.terms[v.k],isNow=view===C.i,n=today-v.d,len=C.list[view+1].d-v.d,cur=isNow?Math.min(2,Math.floor(n/5)):-1;
+  el.houH.textContent=T.n+"三候";el.gloss.textContent="「"+T.g+"」";el.note.textContent=T.t;
+  let r="";for(let j=0;j<3;j++){r+="<li>";for(let x=j*5,b=j<2?j*5+5:len;x<b;x++)r+=`<i class="${isNow?(x<n?"p":x===n?"t":""):""}"></i>`;r+="</li>"}
+  el.ruler.innerHTML=`<ol aria-hidden="true">${r}</ol><span>${isNow?`今天是第 ${n+1} 天，全長 ${len} 天`:`${md(v.d)} – ${md(v.d+len-1)}，全長 ${len} 天`}</span>`;
+  el.hous.innerHTML=T.h.map((x,j)=>{const s=v.d+j*5,e=j<2?s+4:v.d+len-1;return `<article class="hou${j===cur?" now":""}"><p class="meta"><b class="ord">${ORD[j]}</b><span>${md(s)} – ${md(e)}</span>${j===cur?'<em class="pill">現在</em>':""}</p><h3 class="nm">${esc(x[0]).replace("|","<br>")}</h3><div class="tx"><blockquote class="gu"><span class="tag" title="古籍原文">古</span><p>${esc(x[1])}</p></blockquote><div class="jin"><span class="tag" title="現代的解釋">今</span><p>${esc(x[2])}</p></div></div></article>`}).join("");
+}
+function stopVideo(){job++;clearTimeout(dog);const v=el.vid;v.pause();if(v.getAttribute("src")){v.removeAttribute("src");v.load()}if(blobUrl){URL.revokeObjectURL(blobUrl);blobUrl=null}}
+function film(){
+  const T=term(view),rel=today>=FIRST[view],no=+T.no;
+  stopVideo();
+  el.filmH.textContent=T.n+"的免疫學";el.ep.textContent=`第 ${no} 集　${T.tp}`;
+  el.hookq.innerHTML=T.q.map(x=>`<span>${esc(x)}</span>`).join("");
+  el.take.hidden=el.refs.hidden=!rel;
+  el.take.innerHTML="<small>這一集的結論</small>"+T.a.map(x=>`<span>${esc(x)}</span>`).join("");
+  el.poster.src=`p/${T.no}.jpg`;el.poster.alt=`第 ${no} 集封面：${T.tp}`;
+  el.player.dataset.s=rel?"idle":"lock";
+  if(!rel)el.lockt.textContent=`這一集在 ${mdZh(FIRST[view])}上線`;
+  el.refs.innerHTML=`<summary>這一集的參考文獻（${T.r.length} 篇）</summary><ol>${T.r.map(r=>`<li>${esc(r[0])}${r[1]?` <a href="${r[1]}" target="_blank" rel="noopener">${r[1].includes("pmc.")?"PMC":"PubMed"}</a>`:""}</li>`).join("")}</ol>`;
+}
+// 先讓瀏覽器直接串流；不行（例如主機不支援分段讀取）就整支下載後再播
+async function viaBlob(url){
+  const my=++job;el.player.dataset.s="load";el.bar.style.width="0";
+  try{
+    const r=await fetch(url);if(!r.ok)throw 0;
+    const total=+r.headers.get("content-length")||0,rd=r.body.getReader(),parts=[];let got=0;
+    for(;;){const{done,value}=await rd.read();if(my!==job)return;if(done)break;parts.push(value);got+=value.length;if(total)el.bar.style.width=(got/total*100).toFixed(1)+"%"}
+    blobUrl=URL.createObjectURL(new Blob(parts,{type:"video/mp4"}));
+    el.vid.src=blobUrl;el.player.dataset.s="play";el.vid.play().catch(()=>{});
+  }catch(e){if(my===job)el.player.dataset.s="err"}
+}
+function play(){
+  const url=`v/${term(view).no}.mp4`,v=el.vid,my=++job;
+  el.player.dataset.s="play";v.controls=true;v.src=url;
+  const p=v.play();if(p&&p.catch)p.catch(()=>{});
+  clearTimeout(dog);dog=setTimeout(()=>{if(my===job&&v.readyState===0)viaBlob(url)},9000);
+}
+el.vid.addEventListener("error",()=>{const s=el.vid.getAttribute("src");if(el.player.dataset.s==="play"&&s&&!blobUrl)viaBlob(s)});
+function year(){
+  el.seasons.innerHTML=["冬","春","夏","秋"].map((s,q)=>`<section class="season"><h3><b>${s}</b><span>${md(C.list[q*6].d)} – ${md(C.list[q*6+6].d-1)}</span></h3><ol>${[0,1,2,3,4,5].map(j=>{const i=q*6+j,x=C.list[i],T=D.terms[x.k],rel=today>=FIRST[i];return `<li><button type="button" class="tb${i===C.i?" now":""}${i===view?" view":""}${rel?"":" soon"}" data-i="${i}" aria-pressed="${i===view}" aria-label="${T.n}，${mdZh(x.d)}，${T.tp}${i===C.i?"，現在的節氣":""}${rel?"":"，影片還沒上線"}"><span class="tn">${T.n}</span><span class="td">${i===C.i?"現在　":""}${md(x.d)}</span><span class="tt">${T.tp}</span></button></li>`}).join("")}</ol></section>`).join("");
+}
+function renderAll(){paint(term(view).c);hero();hou();film();year()}
+function select(i,scroll){
+  if(i==null||i<0||i>23)return;
+  if(i!==view){view=i;renderAll();const h=i===C.i?"now":term(i).s;if(location.hash.slice(1)!==h)location.hash=h}
+  if(scroll)$("#hou").scrollIntoView({behavior:still?"auto":"smooth",block:"start"});
+}
+function tick(){
+  const now=Date.now(),lam=sunLon(now);el.lam.textContent=lam.toFixed(5)+"°";
+  if(!anim)sunAt(lam);
+  if(dayNo(now)!==today){const follow=view===C.i;C=cycle(now);today=dayNo(now);if(follow)view=C.i;renderAll()}
+}
+el.seasons.addEventListener("click",e=>{const b=e.target.closest(".tb");if(b)select(+b.dataset.i,true)});
+el.back.addEventListener("click",()=>select(C.i,false));
+$("#lockb").addEventListener("click",()=>select(C.i,true));
+$("#pbtn").addEventListener("click",play);
+$("#retry").addEventListener("click",play);
+$("#go").addEventListener("click",()=>$("#film").scrollIntoView({behavior:still?"auto":"smooth",block:"start"}));
+$("#jump").addEventListener("click",()=>$("#year").scrollIntoView({behavior:still?"auto":"smooth",block:"start"}));
+addEventListener("hashchange",()=>{const i=fromHash();if(i!=null)select(i,false)});
+
+buildRing();
+const h0=fromHash();if(h0!=null)view=h0;
+renderAll();tick();setInterval(tick,1000);
+// 開場：太陽從這個節氣的起點走到今天的位置
+if(!still&&view===C.i){
+  const a=C.list[C.i].k*15,t0=performance.now();anim=true;
+  const step=t=>{const p=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-p,3);let b=sunLon(Date.now());if(b<a)b+=360;sunAt(a+(b-a)*e);if(p<1)requestAnimationFrame(step);else anim=false};
+  requestAnimationFrame(step);
+}
+})();
+</script>
+</body>
+</html>

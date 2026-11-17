@@ -1,0 +1,9 @@
+/f/*
+  Cache-Control: public, max-age=31536000, immutable
+/v/*
+  Cache-Control: public, max-age=86400
+/p/*
+  Cache-Control: public, max-age=86400
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

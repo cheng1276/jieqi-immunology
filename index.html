@@ -376,24 +376,32 @@ function film(){
   if(!rel)el.lockt.textContent=`這一集在 ${mdZh(FIRST[view])}上線`;
   el.refs.innerHTML=`<summary>這一集的參考文獻（${T.r.length} 篇）</summary><ol>${T.r.map(r=>`<li>${esc(r[0])}${r[1]?` <a href="${r[1]}" target="_blank" rel="noopener">${r[1].includes("pmc.")?"PMC":"PubMed"}</a>`:""}</li>`).join("")}</ol>`;
 }
-// 先讓瀏覽器直接串流；不行（例如主機不支援分段讀取）就整支下載後再播
-async function viaBlob(url){
-  const my=++job;el.player.dataset.s="load";el.bar.style.width="0";
-  try{
-    const r=await fetch(url);if(!r.ok)throw 0;
-    const total=+r.headers.get("content-length")||0,rd=r.body.getReader(),parts=[];let got=0;
-    for(;;){const{done,value}=await rd.read();if(my!==job)return;if(done)break;parts.push(value);got+=value.length;if(total)el.bar.style.width=(got/total*100).toFixed(1)+"%"}
-    blobUrl=URL.createObjectURL(new Blob(parts,{type:"video/mp4"}));
-    el.vid.src=blobUrl;el.player.dataset.s="play";el.vid.play().catch(()=>{});
-  }catch(e){if(my===job)el.player.dataset.s="err"}
+// Cloudflare Pages 不支援分段讀取（iPhone 的 Safari 需要），那裡的影片先從 GitHub Pages 讀
+const VBASE=/\.pages\.dev$/.test(location.hostname)?"https://cheng1276.github.io/jieqi-immunology/":"";
+let vurls=[];
+// 先讓瀏覽器直接串流；不行就整支下載後再播（依序試每個來源）
+async function viaBlob(urls){
+  const my=++job;el.player.dataset.s="load";
+  for(const url of urls){
+    el.bar.style.width="0";
+    try{
+      const r=await fetch(url);if(!r.ok)throw 0;
+      const total=+r.headers.get("content-length")||0,rd=r.body.getReader(),parts=[];let got=0;
+      for(;;){const{done,value}=await rd.read();if(my!==job)return;if(done)break;parts.push(value);got+=value.length;if(total)el.bar.style.width=(got/total*100).toFixed(1)+"%"}
+      blobUrl=URL.createObjectURL(new Blob(parts,{type:"video/mp4"}));
+      el.vid.src=blobUrl;el.player.dataset.s="play";el.vid.play().catch(()=>{});return;
+    }catch(e){if(my!==job)return}
+  }
+  el.player.dataset.s="err";
 }
 function play(){
-  const url=`v/${term(view).no}.mp4`,v=el.vid,my=++job;
-  el.player.dataset.s="play";v.controls=true;v.src=url;
+  const path=`v/${term(view).no}.mp4`,v=el.vid,my=++job;
+  vurls=VBASE?[VBASE+path,path]:[path];
+  el.player.dataset.s="play";v.controls=true;v.src=vurls[0];
   const p=v.play();if(p&&p.catch)p.catch(()=>{});
-  clearTimeout(dog);dog=setTimeout(()=>{if(my===job&&v.readyState===0)viaBlob(url)},9000);
+  clearTimeout(dog);dog=setTimeout(()=>{if(my===job&&v.readyState===0)viaBlob(vurls)},9000);
 }
-el.vid.addEventListener("error",()=>{const s=el.vid.getAttribute("src");if(el.player.dataset.s==="play"&&s&&!blobUrl)viaBlob(s)});
+el.vid.addEventListener("error",()=>{if(el.player.dataset.s==="play"&&el.vid.getAttribute("src")&&!blobUrl)viaBlob(vurls)});
 function year(){
   el.seasons.innerHTML=["冬","春","夏","秋"].map((s,q)=>`<section class="season"><h3><b>${s}</b><span>${md(C.list[q*6].d)} – ${md(C.list[q*6+6].d-1)}</span></h3><ol>${[0,1,2,3,4,5].map(j=>{const i=q*6+j,x=C.list[i],T=D.terms[x.k],rel=today>=FIRST[i];return `<li><button type="button" class="tb${i===C.i?" now":""}${i===view?" view":""}${rel?"":" soon"}" data-i="${i}" aria-pressed="${i===view}" aria-label="${T.n}，${mdZh(x.d)}，${T.tp}${i===C.i?"，現在的節氣":""}${rel?"":"，影片還沒上線"}"><span class="tn">${T.n}</span><span class="td">${i===C.i?"現在　":""}${md(x.d)}</span><span class="tt">${T.tp}</span></button></li>`}).join("")}</ol></section>`).join("");
 }

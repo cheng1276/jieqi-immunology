@@ -26,6 +26,8 @@
 
 網站沒有建置步驟：推送到 `main` 後，GitHub Pages 與 Cloudflare Pages 都會直接發佈這個資料夾。
 
+Cloudflare Pages 不支援影片的分段讀取（iPhone 的 Safari 播放時需要），所以 Cloudflare 上的網頁會先從 GitHub Pages 讀取影片；讀不到時，改為整支下載 Cloudflare 上的檔案再播放。
+
 ## 字型
 
 - 明體：Noto Serif TC，SIL Open Font License 1.1，見 `f/OFL-NotoSerifTC.txt`。
